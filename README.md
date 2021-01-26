@@ -1,2 +1,1 @@
-# ozzey.github.io
-This is my personal portfolio
+My portfolio which contains all my projects, education, skills etc.
