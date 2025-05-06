@@ -30,44 +30,44 @@
       background-size: cover;
       background-position: center center;
       opacity: 0;
-      animation: slideAnimation 64s infinite;
+      animation: slideAnimation 32s infinite;
     }
-    /* Background images */
+    /* Background images with new 4s intervals */
     .slideshow div:nth-child(1) { background-image: url('https://media-rockstargames-com.akamaized.net/tina-uploads/tina-modules/gta-v/1e85d43728a064d7cddcdffdc45a6181c4bcb218.jpg'); animation-delay:   0s; }
-    .slideshow div:nth-child(2) { background-image: url('https://media-rockstargames-com.akamaized.net/tina-uploads/tina-modules/gta-v/6f3821f838206d283eb6d4daba97d40eee78aa51.jpg'); animation-delay:   8s; }
-    .slideshow div:nth-child(3) { background-image: url('https://media-rockstargames-com.akamaized.net/tina-uploads/tina-modules/gta-v/7f4ce4e75d7fdf8242be91007816104772c99935.jpg'); animation-delay:  16s; }
-    .slideshow div:nth-child(4) { background-image: url('https://media-rockstargames-com.akamaized.net/tina-uploads/tina-modules/gta-v/9ca23774eb886a9dce533874723e35ce7a825f5d.png'); animation-delay:  24s; }
-    .slideshow div:nth-child(5) { background-image: url('https://media-rockstargames-com.akamaized.net/tina-uploads/tina-modules/gta-v/24ba6644deb404944cdbe64705285bbad80154a4.jpg'); animation-delay: 32s; }
-    .slideshow div:nth-child(6) { background-image: url('https://media-rockstargames-com.akamaized.net/tina-uploads/tina-modules/gta-v/224f9a314a45e5828e9af56153f8871c06290689.png'); animation-delay: 40s; }
-    .slideshow div:nth-child(7) { background-image: url('https://media-rockstargames-com.akamaized.net/tina-uploads/tina-modules/gta-v/a9877dd12c6baf42e1def32e0218c540cc95a13d.jpg'); animation-delay: 48s; }
-    .slideshow div:nth-child(8) { background-image: url('https://media-rockstargames-com.akamaized.net/tina-uploads/tina-modules/gta-v/a457313ec277b6e74bd25238768cbcecda739549.jpg'); animation-delay: 56s; }
+    .slideshow div:nth-child(2) { background-image: url('https://media-rockstargames-com.akamaized.net/tina-uploads/tina-modules/gta-v/6f3821f838206d283eb6d4daba97d40eee78aa51.jpg'); animation-delay:   4s; }
+    .slideshow div:nth-child(3) { background-image: url('https://media-rockstargames-com.akamaized.net/tina-uploads/tina-modules/gta-v/7f4ce4e75d7fdf8242be91007816104772c99935.jpg'); animation-delay:   8s; }
+    .slideshow div:nth-child(4) { background-image: url('https://media-rockstargames-com.akamaized.net/tina-uploads/tina-modules/gta-v/9ca23774eb886a9dce533874723e35ce7a825f5d.png'); animation-delay:  12s; }
+    .slideshow div:nth-child(5) { background-image: url('https://media-rockstargames-com.akamaized.net/tina-uploads/tina-modules/gta-v/24ba6644deb404944cdbe64705285bbad80154a4.jpg'); animation-delay: 16s; }
+    .slideshow div:nth-child(6) { background-image: url('https://media-rockstargames-com.akamaized.net/tina-uploads/tina-modules/gta-v/224f9a314a45e5828e9af56153f8871c06290689.png'); animation-delay: 20s; }
+    .slideshow div:nth-child(7) { background-image: url('https://media-rockstargames-com.akamaized.net/tina-uploads/tina-modules/gta-v/a9877dd12c6baf42e1def32e0218c540cc95a13d.jpg'); animation-delay: 24s; }
+    .slideshow div:nth-child(8) { background-image: url('https://media-rockstargames-com.akamaized.net/tina-uploads/tina-modules/gta-v/a457313ec277b6e74bd25238768cbcecda739549.jpg'); animation-delay: 28s; }
 
     @keyframes slideAnimation {
       0%   { opacity: 0; }
-      2%   { opacity: 1; }
-      12.5%{ opacity: 1; }
-      14.5%{ opacity: 0; }
+      6.25% { opacity: 1; }
+      25%  { opacity: 1; }
+      31.25% { opacity: 0; }
       100% { opacity: 0; }
     }
 
-    /* Darker overlay for stronger contrast */
+    /* Darker overlay for contrast */
     .overlay { position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.8); z-index: 1; }
 
     /* Countdown container */
     .countdown-container { position: relative; z-index: 2; display: flex; flex-direction: column; justify-content: center; align-items: center; height: 100%; text-align: center; padding: 0 20px; }
-    .countdown-container h1 { font-family: 'Pricedown', sans-serif; font-size: 3rem; letter-spacing: 2px; text-transform: uppercase; margin-bottom: 20px; text-shadow: 2px 2px 4px rgba(0,0,0,0.7); color: #fff; }
-    .timer { display: flex; gap: 20px; font-size: 2.5rem; font-family: 'Pricedown', sans-serif; color: #fff; }
+    .countdown-container h1 { font-family: 'Pricedown', sans-serif; font-size: 3rem; letter-spacing: 2px; text-transform: uppercase; margin-bottom: 20px; text-shadow: 2px 2px 4px rgba(0,0,0,0.7); }
+    .timer { display: flex; gap: 20px; font-size: 2.5rem; font-family: 'Pricedown', sans-serif; }
     .timer div { display: flex; flex-direction: column; align-items: center; }
-    .timer div span { font-size: 1rem; margin-top: 5px; letter-spacing: 1px; font-family: 'Arial', sans-serif; color: #fff; }
+    .timer div span { font-size: 1rem; margin-top: 5px; letter-spacing: 1px; font-family: 'Arial', sans-serif; }
 
     /* Trailers section */
-    .trailers { position: relative; z-index: 2; margin-top: 40px; text-align: center; }
-    .trailers h2 { font-family: 'Pricedown', sans-serif; color: #fff; font-size: 2rem; margin-bottom: 20px; }
+    .trailers { margin-top: 40px; text-align: center; }
+    .trailers h2 { font-family: 'Pricedown', sans-serif; font-size: 2rem; margin-bottom: 20px; }
     .trailer-links a { color: #fff; text-decoration: none; display: inline-flex; align-items: center; margin: 0 15px; font-size: 1.2rem; }
     .trailer-links img { width: 48px; height: 48px; margin-right: 12px; }
 
     /* Footer styles */
-    .footer { position: absolute; bottom: 10px; width: 100%; text-align: center; z-index: 2; font-size: 1rem; font-family: 'Arial', sans-serif; }
+    .footer { position: absolute; bottom: 10px; width: 100%; text-align: center; font-size: 1rem; font-family: 'Arial', sans-serif; }
     .footer a { margin: 0 10px; color: #fff; text-decoration: none; display: inline-flex; align-items: center; }
     .footer img { width: 16px; height: 16px; margin-right: 5px; }
 
@@ -84,7 +84,6 @@
   </style>
 </head>
 <body>
-  <!-- Slideshow of GTA V backgrounds -->
   <div class="slideshow">
     <div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div>
   </div>
@@ -113,7 +112,8 @@
     </div>
   </div>
 
-  <!-- Footer with links -->
+
+  <!-- Footer -->
   <div class="footer">
     <a href="https://github.com/Ozzey" target="_blank"><img src="https://github.githubassets.com/favicons/favicon.png" alt="GitHub">GitHub</a> |
     <a href="https://www.linkedin.com/in/narendra-aditya/" target="_blank"><img src="https://static.licdn.com/scds/common/u/images/logos/favicons/v1/favicon.ico" alt="LinkedIn">LinkedIn</a> |
@@ -121,7 +121,7 @@
   </div>
 
   <script>
-    const releaseDate = new Date('2025-11-02T00:00:00');
+    const releaseDate = new Date('2026-05-26T00:00:00');
     function updateCountdown() {
       const now = new Date();
       const diff = releaseDate - now;
