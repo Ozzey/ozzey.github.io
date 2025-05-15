@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>BenchLAB</title>
+  <!-- TailwindCSS via CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-50">
+  <div id="root"></div>
+
+  <!-- React + ReactDOM UMD builds -->
+  <script src="https://unpkg.com/react@17/umd/react.development.js"></script>
+  <script src="https://unpkg.com/react-dom@17/umd/react-dom.development.js"></script>
+  <!-- Babel in-browser JSX transpiler -->
+  <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+
+  <!-- Your component code -->
+  <script type="text/babel">
+    function BenchLabLandingPage() {
+      return (
+        <main className="min-h-screen flex flex-col">
+
+          {/* Hero Section */}
+          <section className="flex-grow bg-white py-20 text-center">
+            <div className="container mx-auto px-6">
+              <h1 className="text-5xl font-extrabold mb-6">
+                BenchLAB:<br/>
+                Multi-Task RL Benchmarking Environment
+              </h1>
+              <p className="text-lg text-gray-700 mb-8">
+                A comprehensive benchmark suite for evaluating multi-task reinforcement learning algorithms across diverse environments.
+              </p>
+              <div className="flex flex-wrap justify-center space-x-4 mb-8">
+                <a href="#paper" className="px-6 py-3 bg-blue-600 text-white rounded-xl shadow hover:bg-blue-700 mb-2">
+                  Read the Paper
+                </a>
+                <a href="https://github.com/Ozzey/BenchLab" className="px-6 py-3 border border-blue-600 text-blue-600 rounded-xl hover:bg-blue-50 mb-2">
+                  View Code
+                </a>
+                <a href="#model" className="px-6 py-3 bg-blue-600 text-white rounded-xl shadow hover:bg-blue-700 mb-2">
+                  View Model
+                </a>
+              </div>
+              <p className="text-xl text-gray-700">
+                <strong>Authors:</strong> Aditya Narendra, Dmitry Makarov, Aleksandr Panov
+              </p>
+            </div>
+          </section>
+
+          {/* Abstract Section */}
+          <section id="abstract" className="py-20 bg-gray-50 text-center">
+            <div className="container mx-auto px-6">
+              <h2 className="text-3xl font-bold mb-6">Abstract</h2>
+              <p className="text-gray-700 mx-auto mb-4 max-w-3xl">
+                BenchLAB is a multi-task reinforcement learning benchmarking platform built atop IsaacLab. It features a collection of manipulation tasks that share a similar action space, offering a consistent and robust benchmark for evaluating a variety of reinforcement learning algorithms. This environment is designed to facilitate reliable comparisons and assessments of algorithmic performance across different RL methods.
+              </p>
+              <p className="font-mono">Keywords: multi-task, reinforcement-learning, isaaclab</p>
+            </div>
+          </section>
+
+          {/* Features Section */}
+          <section className="py-20 bg-white text-center">
+            <div className="container mx-auto px-6">
+              <h2 className="text-3xl font-bold mb-12">Key Features</h2>
+              <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
+                {[
+                  { title: "Vectorization", desc: "GPU-based parallelization for faster training." },
+                  { title: "Domain-Randomization", desc: "Domain randomization for robust training and inference." },
+                  { title: "Photo-Realism", desc: "Photo realistic environment for visual tasks." },
+                  { title: "Knowledge-Map", desc: "Knowledge-Map for partially observable environments." }
+                ].map(f => (
+                  <div key={f.title} className="bg-gray-50 p-6 rounded-2xl shadow hover:shadow-lg transition text-center">
+                    <h3 className="text-xl font-semibold mb-4">{f.title}</h3>
+                    <p className="text-gray-600">{f.desc}</p>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </section>
+
+          {/* Installation Section */}
+          <section id="paper" className="bg-gray-50 py-20 text-center">
+            <div className="container mx-auto px-6">
+              <h2 className="text-3xl font-bold mb-6">Installation</h2>
+              <div className="mx-auto text-left max-w-xl">
+                <ol className="list-decimal list-inside space-y-4 text-gray-700">
+                  <li>
+                    Install Isaac Lab per <a href="https://isaac-sim.github.io/IsaacLab/main/source/setup/installation/index.html" className="text-blue-600 hover:underline">installation guide</a>.
+                  </li>
+                  <li>
+                    Clone the repository:
+                    <pre className="bg-gray-100 p-4 rounded-lg overflow-auto"><code>git clone https://github.com/Ozzey/BenchLab.git</code></pre>
+                  </li>
+                  <li>
+                    Install the library:
+                    <pre className="bg-gray-100 p-4 rounded-lg overflow-auto"><code>python -m pip install -e source/BenchLab</code></pre>
+                  </li>
+                  <li>
+                    Run a sample task:
+                    <pre className="bg-gray-100 p-4 rounded-lg overflow-auto"><code>python scripts/rl_games/train.py --task=Isaac-Open-Drawer-Franka-v0</code></pre>
+                  </li>
+                </ol>
+              </div>
+            </div>
+          </section>
+
+          {/* Demonstration Section */}
+          <section id="demo" className="py-20 bg-white text-center">
+            <div className="container mx-auto px-6">
+              <h2 className="text-3xl font-bold mb-6">Demonstration</h2>
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <video controls className="mx-auto rounded-2xl shadow-lg max-w-full">
+                  <source src="https://drive.google.com/uc?export=download&id=1nKvEWvg48lbTrmKLTsnPgYGjlrGilEpM" type="video/mp4" />
+                  Your browser does not support the video tag.
+                </video>
+                <video controls className="mx-auto rounded-2xl shadow-lg max-w-full">
+                  <source src="https://drive.google.com/uc?export=download&id=1CCpVRtMHsAI0zvd-VMHwBES99SsJAlWX" type="video/mp4" />
+                  Your browser does not support the video tag.
+                </video>
+                <video controls className="mx-auto rounded-2xl shadow-lg max-w-full">
+                  <source src="https://drive.google.com/uc?export=download&id=1HFLweWD3pY5Jp1PJ0dAWkAakyNQYzoBw" type="video/mp4" />
+                  Your browser does not support the video tag.
+                </video>
+              </div>
+            </div>
+          </section>
+
+          {/* Citation Section */}
+          <section id="citation" className="py-20 bg-gray-50 text-center">
+            <div className="container mx-auto px-6">
+              <h2 className="text-3xl font-bold mb-6">Citation</h2>
+              <pre className="bg-gray-100 p-4 rounded-lg overflow-auto mx-auto max-w-3xl">
+                <code>[Placeholder citation]</code>
+              </pre>
+            </div>
+          </section>
+
+          {/* Footer */}
+          <footer className="bg-gray-800 text-gray-400 py-10 text-center">
+            <div className="container mx-auto px-6">
+              <p>© 2025 BenchLAB</p>
+              <p className="mt-2">Developed by Centre for Cognitive Modeling, MIPT</p>
+            </div>
+          </footer>
+
+        </main>
+      );
+    }
+
+    ReactDOM.render(<BenchLabLandingPage />, document.getElementById('root'));
+  </script>
+</body>
+</html>
