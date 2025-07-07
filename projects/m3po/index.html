@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="description"
+        content="M3PO: Massively Multi-Task Model-Based Policy Optimization">
+  <meta name="keywords" content="M3PO, Multi-Task, RL, Model-Based, Policy-Optimzation">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>M3PO: Massively Multi-Task Model-Based Policy Optimzation</title>
+
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-PYVRSFMDRL"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+
+    function gtag() {
+      dataLayer.push(arguments);
+    }
+
+    gtag('js', new Date());
+
+    gtag('config', 'G-PYVRSFMDRL');
+  </script>
+
+  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro"
+        rel="stylesheet">
+
+  <link rel="stylesheet" href="./static/css/bulma.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-carousel.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-slider.min.css">
+  <link rel="stylesheet" href="./static/css/fontawesome.all.min.css">
+  <link rel="stylesheet"
+        href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+  <link rel="stylesheet" href="./static/css/index.css">
+  <link rel="icon" href="./static/images/favicon.">
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script defer src="./static/js/fontawesome.all.min.js"></script>
+  <script src="./static/js/bulma-carousel.min.js"></script>
+  <script src="./static/js/bulma-slider.min.js"></script>
+  <script src="./static/js/index.js"></script>
+</head>
+<body>
+
+<nav class="navbar" role="navigation" aria-label="main navigation">
+  <div class="navbar-brand">
+    <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false">
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+    </a>
+  </div>
+  <div class="navbar-menu">
+    <div class="navbar-start" style="flex-grow: 1; justify-content: center;">
+      <a class="navbar-item" href="https://ozzey.github.io">
+      <span class="icon">
+          <i class="fas fa-home"></i>
+      </span>
+      </a>
+
+      <div class="navbar-item has-dropdown is-hoverable">
+        <a class="navbar-link">
+          More Research
+        </a>
+        <div class="navbar-dropdown">
+          <a class="navbar-item" href="#">
+            BenchLab
+          </a>
+          <a class="navbar-item" href="#">
+            Dyn-NPField
+          </a>
+          </a>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</nav>
+
+
+<section class="hero">
+  <div class="hero-body">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered">
+        <div class="column has-text-centered">
+          <h1 class="title is-1 publication-title">M3PO: Massively Multi-Task Model-Based Policy Optimziation</h1>
+          <p></p>
+          <h3 class="subtitle is-4 has-text-weight-normal">IROS 2025</h3>
+          <div class="is-size-5 publication-authors">
+            <span class="author-block">
+              <a href="https://www.linkedin.com/in/narendra-aditya/">Aditya Narendra</a><sup>1</sup>,</span>
+            <span class="author-block">
+              <a href="#">Dmitry Makarov</a><sup>1</sup><sup>2</sup>,</span>
+            <span class="author-block">
+              <a href="https://grafft.github.io/">Aleksandr Panov</a><sup>1</sup><sup>3</sup>,
+            </span>
+          </div>
+
+          <div class="is-size-5 publication-authors">
+            <span class="author-block"><sup>1</sup>Moscow Institute of Physics & Technology (MIPT),</span>
+            <span class="author-block"><sup>2</sup>Federal Research Center “Computer Science and Control” (FRC CSC RAS)</span>
+            <span class="author-block"><sup>3</sup> Artificial Intelligence Institute (AIRI)</span>
+          </div>
+
+          <div class="column has-text-centered">
+            <div class="publication-links">
+              <!-- PDF Link. -->
+              <span class="link-block">
+                <a href="https://arxiv.org/abs/2506.21782"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="fas fa-file-pdf"></i>
+                  </span>
+                  <span>Paper</span>
+                </a>
+              </span>
+              <span class="link-block">
+                <a href="https://arxiv.org/abs/2506.21782"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="ai ai-arxiv"></i>
+                  </span>
+                  <span>arXiv</span>
+                </a>
+              </span>
+              <!-- Code Link. -->
+              <!-- <span class="link-block">
+                <a href="#"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="fab fa-github"></i>
+                  </span>
+                  <span>Code</span>
+                  </a>
+              </span> -->
+              <!-- Dataset Link. -->
+              <!-- <span class="link-block">
+                <a href="#"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="far fa-images"></i>
+                  </span>
+                  <span>Data</span>
+                  </a>
+            </div> -->
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<section class="section">
+  <div class="container is-max-desktop">
+    <!-- Abstract. -->
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Abstract</h2>
+        <div class="content has-text-justified">
+          <p>
+            We introduce Massively Multi-Task Model-Based Policy Optimization (M3PO), a scalable model-based reinforcement learning (MBRL) framework designed to address sample inefficiency in single-task settings and poor generalization in multi-task domains. Existing model-based approaches like DreamerV3 rely on pixel-level generative models that neglect control-centric representations, while model-free methods such as PPO suffer from high sample complexity and weak exploration. M3PO integrates an implicit world model, trained to predict task outcomes without observation reconstruction, with a hybrid exploration strategy that combines model-based planning and model-free uncertainty-driven bonuses. This eliminates the bias-variance trade-off in prior methods by using discrepancies between model-based and model-free value estimates to guide exploration, while maintaining stable policy updates through a trust-region optimizer. M3PO provides an efficient and robust alternative to existing model-based policy optimization approaches and achieves state-of-the-art performance across multiple benchmarks.
+          </p>
+        </div>
+      </div>
+    </div>
+    <!--/ Abstract. -->
+
+    <!-- Paper video. -->
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Video</h2> 
+        <div class="publication-video">
+          <iframe src="https://www.youtube.com/embed/c0JxBRN4U3Y?rel=0&amp;showinfo=0"
+                  frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+        </div>
+      </div>
+    </div>
+    <!--/ Paper video. -->
+  </div>
+</section>
+
+
+<section class="section">
+  <div class="container is-max-desktop">
+    <h2 class="title is-4 has-text-link">M3PO Learns Diverse Tasks</h2>
+    <p class="is-size-6">We evaluate M3PO on 189 control tasks across multiple task domains: DMControl, Meta-World and DMLab.</p>
+    <div class="columns is-desktop is-variable is-8">
+      <div class="column is-half">
+        <video src="./static/videos/benchmark1.mp4" autoplay muted loop width="100%" style="height:auto;"></video>
+      </div>
+      <div class="column is-half">
+        <video src="./static/videos/benchmark2.mp4" autoplay muted loop width="100%" style="height:auto;"></video>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Benchmarking Sections -->
+<section class="section">
+  <div class="container is-max-desktop">
+    <h2 class="title is-4 has-text-link">1. Single Task Benchmarking</h2>
+    <p class="is-size-6">M3PO outperforms model-free methods (PPO, SAC) and DreamerV3 across 39 DMControl and 50 MetaWorld tasks, achieving higher returns and faster convergence.</p>
+    <div class="columns">
+      <div class="column">
+        <figure class="image" style="width:100%; max-width:400px; margin:auto;">
+          <img src="./static/images/DMControl_singletask.png" alt="DMControl single-task results" style="width:100%; height:auto;">
+        </figure>
+      </div>
+      <div class="column">
+        <figure class="image" style="width:100%; max-width:400px; margin:auto;">
+          <img src="./static/images/MetaWorld_singletask.png" alt="MetaWorld single-task results" style="width:100%; height:auto;">
+        </figure>
+      </div>
+    </div>
+
+    <h2 class="title is-4 has-text-link">2. Multi Task Benchmarking</h2>
+    <p class="is-size-6">On 80 combined DMLab+MetaWorld tasks, M3PO and TD-MPC2 reach ~85–90% normalized score; M3PO shows notably tighter confidence bands for more stable learning.</p>
+    <figure class="image" style="width:60%; max-width:360px; margin:auto;">
+      <img src="./static/images/DMLab_Metaworld.png" alt="Multi-task benchmarking" style="width:100%; height:auto;">
+    </figure>
+
+    <h2 class="title is-4 has-text-link">3. Vectorized Benchmarking</h2>
+    <p class="is-size-6">As environment vectorization increases, M3PO maintains high average returns, whereas TD-MPC2’s performance and stability degrade under heavy parallelism.</p>
+    <figure class="image" style="width:60%; max-width:360px; margin:auto;">
+      <img src="./static/images/Vectorized_Stability.png" alt="Vectorized environment performance" style="width:100%; height:auto;">
+    </figure>
+  </div>
+</section>
+
+
+
+
+<section class="section" id="BibTeX">
+  <div class="container is-max-desktop content">
+    <h2 class="title">BibTeX</h2>
+    <pre><code>@misc{narendra2025m3pomassivelymultitaskmodelbased,
+      title={M3PO: Massively Multi-Task Model-Based Policy Optimization}, 
+      author={Aditya Narendra and Dmitry Makarov and Aleksandr Panov},
+      year={2025},
+      eprint={2506.21782},
+      archivePrefix={arXiv},
+      primaryClass={cs.LG},
+      url={https://arxiv.org/abs/2506.21782}, 
+}</code></pre>
+  </div>
+</section>
+
+
+<footer class="footer">
+  <div class="container">
+    <div class="content has-text-centered">
+      <a class="icon-link"
+         href="#">
+        <i class="fas fa-file-pdf"></i>
+      </a>
+      <a class="icon-link" href="#" class="external-link" disabled>
+        <i class="fab fa-github"></i>
+      </a>
+    </div>
+    <div class="columns is-centered">
+      <div class="column is-8">
+        <div class="content">
+          <p>
+            This website is licensed under a <a rel="license"
+                                                href="http://creativecommons.org/licenses/by-sa/4.0/">Creative
+            Commons Attribution-ShareAlike 4.0 International License</a>.
+          </p>
+          <p>
+            <!-- This means you are free to borrow the <a
+              href="https://github.com/nerfies/nerfies.github.io">source code</a> of this website,
+            we just ask that you link back to this page in the footer.
+            Please remember to remove the analytics code included in the header of the website which
+            you do not want on your website. -->
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
