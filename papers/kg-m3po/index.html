@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="description"
+        content="KG-M3PO: Knowledge-Guided Manipulation Using Multi-Task Reinforcement Learning">
+  <meta name="keywords" content="KG-M3PO, Knowledge Graph, Multi-Task RL, Robotic Manipulation, Model-Based Policy Optimization">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>KG-M3PO: Knowledge-Guided Manipulation Using Multi-Task Reinforcement Learning</title>
+
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-PYVRSFMDRL"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+
+    function gtag() {
+      dataLayer.push(arguments);
+    }
+
+    gtag('js', new Date());
+
+    gtag('config', 'G-PYVRSFMDRL');
+  </script>
+
+  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro"
+        rel="stylesheet">
+
+  <link rel="stylesheet" href="./static/css/bulma.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-carousel.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-slider.min.css">
+  <link rel="stylesheet" href="./static/css/fontawesome.all.min.css">
+  <link rel="stylesheet"
+        href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+  <link rel="stylesheet" href="./static/css/index.css">
+  <link rel="icon" href="./static/images/favicon.svg">
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script defer src="./static/js/fontawesome.all.min.js"></script>
+  <script src="./static/js/bulma-carousel.min.js"></script>
+  <script src="./static/js/bulma-slider.min.js"></script>
+  <script src="./static/js/index.js"></script>
+</head>
+<body>
+
+<nav class="navbar" role="navigation" aria-label="main navigation">
+  <div class="navbar-brand">
+    <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false">
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+    </a>
+  </div>
+  <div class="navbar-menu">
+    <div class="navbar-start" style="flex-grow: 1; justify-content: center;">
+      <a class="navbar-item" href="https://ozzey.github.io">
+      <span class="icon">
+          <i class="fas fa-home"></i>
+      </span>
+      </a>
+
+      <div class="navbar-item has-dropdown is-hoverable">
+        <a class="navbar-link">
+          More Research
+        </a>
+        <div class="navbar-dropdown">
+          <a class="navbar-item" href="../m3po/">
+            M3PO
+          </a>
+          <a class="navbar-item" href="./">
+            KG-M3PO
+          </a>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</nav>
+
+
+<section class="hero">
+  <div class="hero-body">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered">
+        <div class="column has-text-centered">
+          <h1 class="title is-1 publication-title">KG-M3PO: Knowledge-Guided Manipulation Using Multi-Task Reinforcement Learning</h1>
+          <p></p>
+          <h3 class="subtitle is-4 has-text-weight-normal">ICRA 2026</h3>
+          <div class="is-size-5 publication-authors">
+            <span class="author-block">
+              <a href="https://www.linkedin.com/in/narendra-aditya/">Aditya Narendra</a><sup>1</sup>,</span>
+            <span class="author-block">
+              <a href="#">Mukhammadrizo Maribjonov</a><sup>2</sup>,</span>
+            <span class="author-block">
+              <a href="#">Dmitry Makarov</a><sup>3</sup>,</span>
+            <span class="author-block">
+              <a href="#">Dmitry Yudin</a><sup>4</sup>,</span>
+            <span class="author-block">
+              <a href="https://grafft.github.io/">Aleksandr Panov</a><sup>5</sup>
+            </span>
+          </div>
+
+          <div class="is-size-5 publication-authors">
+            <span class="author-block" style="display:block;"><sup>1</sup>MIRAI, Moscow, Russia and MBZUAI, UAE</span>
+            <span class="author-block" style="display:block;"><sup>2</sup>Innopolis University, Russia</span>
+            <span class="author-block" style="display:block;"><sup>3</sup>MIRAI, Moscow, Russia</span>
+            <span class="author-block" style="display:block;"><sup>4</sup>MIRAI and AXXX, Moscow, Russia</span>
+            <span class="author-block" style="display:block;"><sup>5</sup>MIRAI and AXXX, Moscow, Russia</span>
+          </div>
+
+          <div class="column has-text-centered">
+            <div class="publication-links">
+              <!-- Paper Link. -->
+              <span class="link-block">
+                <a href="https://arxiv.org/pdf/2603.24083"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="fas fa-file-pdf"></i>
+                  </span>
+                  <span>Paper</span>
+                </a>
+              </span>
+              <span class="link-block">
+                <a href="https://arxiv.org/abs/2603.24083"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="ai ai-arxiv"></i>
+                  </span>
+                  <span>arXiv</span>
+                </a>
+              </span>
+              <!-- Code Link. -->
+              <span class="link-block">
+                <a href="https://github.com/Ozzey/kg-m3po"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="fab fa-github"></i>
+                  </span>
+                  <span>Code</span>
+                </a>
+              </span>
+              <!-- Dataset Link. -->
+              <span class="link-block">
+                <a href="https://huggingface.co/datasets/oz-zey/kg-m3po"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <img src="https://huggingface.co/datasets/huggingface/brand-assets/resolve/main/hf-logo.svg"
+                           alt="Hugging Face" style="height:1em; width:1em;">
+                  </span>
+                  <span>Dataset</span>
+                </a>
+              </span>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<section class="section">
+  <div class="container is-max-desktop">
+    <!-- Abstract. -->
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Abstract</h2>
+        <div class="content has-text-justified">
+          <p>
+            This paper introduces Knowledge Graph based Massively Multi-task Model-based Policy Optimization (KG-M3PO), a framework for multi-task robotic manipulation in partially observable settings that unifies perception, knowledge, and policy. The method augments egocentric vision with an online 3D scene graph that grounds open-vocabulary detections into a metric, relational representation. A dynamic-relation mechanism updates spatial, containment, and affordance edges at every step, and a graph neural encoder is trained end-to-end through the RL objective so that relational features are shaped directly by control performance. Multiple observation modalities, including visual, proprioceptive, linguistic, and graph-based inputs, are encoded into a shared latent space for control.
+          </p>
+          <p>
+            Experiments on manipulation tasks with occlusions, distractors, and layout shifts demonstrate consistent gains over strong baselines: the knowledge-conditioned agent achieves higher success rates, improved sample efficiency, and stronger generalization to novel objects and unseen scene configurations. These results support structured, continuously maintained world knowledge as a useful inductive bias for scalable, generalizable manipulation under partial observability.
+          </p>
+        </div>
+      </div>
+    </div>
+    <!--/ Abstract. -->
+
+    <!-- Pipeline. -->
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Framework</h2>
+        <figure class="image" style="width:100%; max-width:680px; margin:auto;">
+          <img src="./static/images/assets/misc/RL_pipeline.jpg" alt="KG-M3PO end-to-end training pipeline" style="width:100%; height:auto;">
+        </figure>
+        <p class="is-size-6 mt-3">KG-M3PO fuses language goals, egocentric images, 3D scene graphs, and proprioception into a shared policy state. The graph encoder is trained directly through the reinforcement learning objective.</p>
+      </div>
+    </div>
+    <!--/ Pipeline. -->
+  </div>
+</section>
+
+
+<section class="section">
+  <div class="container is-max-desktop">
+    <h2 class="title is-4 has-text-link">Perception, Knowledge, and Policy</h2>
+    <p class="is-size-6">The knowledge graph is built from robot sensory data using BBQ-style open-vocabulary 3D scene graph generation, then refreshed online as objects move and relations change.</p>
+    <div class="columns is-desktop is-variable is-8">
+      <div class="column is-half">
+        <figure class="image" style="width:100%; margin:auto;">
+          <img src="./static/images/assets/misc/image.png" alt="Scene graph generation pipeline" style="width:100%; height:auto;">
+        </figure>
+        <p class="has-text-centered is-size-7 mt-2">Scene graph generation pipeline</p>
+      </div>
+      <div class="column is-half">
+        <figure class="image" style="width:100%; margin:auto;">
+          <img src="./static/images/assets/misc/example_bbq.jpg" alt="Example BBQ output with Franka, table, and cabinet" style="width:100%; height:auto;">
+        </figure>
+        <p class="has-text-centered is-size-7 mt-2">Example BBQ output</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<section class="section">
+  <div class="container is-max-desktop">
+    <h2 class="title is-4 has-text-link">KG-M3PO Benchmarks Manipulation Tasks</h2>
+    <p class="is-size-6">The benchmark covers Pick-Cube, Pick-Place, and Open-Cabinet tasks in fully observable scenes, plus partially observable UR5 tasks with hidden targets and movable occluders.</p>
+    <div class="columns">
+      <div class="column">
+        <figure class="image" style="width:100%; max-width:280px; margin:auto;">
+          <img src="./static/images/assets/tasks/Franka-Lift-Cube.png" alt="Franka Pick-Cube task" style="width:100%; height:auto;">
+        </figure>
+        <p class="has-text-centered is-size-7 mt-2">Pick-Cube</p>
+      </div>
+      <div class="column">
+        <figure class="image" style="width:100%; max-width:280px; margin:auto;">
+          <img src="./static/images/assets/tasks/Franka-Pick-N-Place.png" alt="Franka Pick-Place task" style="width:100%; height:auto;">
+        </figure>
+        <p class="has-text-centered is-size-7 mt-2">Pick-Place</p>
+      </div>
+      <div class="column">
+        <figure class="image" style="width:100%; max-width:280px; margin:auto;">
+          <img src="./static/images/assets/tasks/Franka-Cabinet.png" alt="Franka Open-Cabinet task" style="width:100%; height:auto;">
+        </figure>
+        <p class="has-text-centered is-size-7 mt-2">Open-Cabinet</p>
+      </div>
+    </div>
+    <div class="columns">
+      <div class="column">
+        <figure class="image" style="width:100%; max-width:280px; margin:auto;">
+          <img src="./static/images/assets/tasks/UR-5-Partially-Observable-A.png" alt="UR5 partially observable pick task" style="width:100%; height:auto;">
+        </figure>
+        <p class="has-text-centered is-size-7 mt-2">PO Pick</p>
+      </div>
+      <div class="column">
+        <figure class="image" style="width:100%; max-width:280px; margin:auto;">
+          <img src="./static/images/assets/tasks/UR5-Partially-Observable-2a.png" alt="UR5 partially observable pick-place with occluder" style="width:100%; height:auto;">
+        </figure>
+        <p class="has-text-centered is-size-7 mt-2">PO Pick-Place Start</p>
+      </div>
+      <div class="column">
+        <figure class="image" style="width:100%; max-width:280px; margin:auto;">
+          <img src="./static/images/assets/tasks/UR5-Partially-Observable-2b.png" alt="UR5 partially observable pick-place after occluder moves" style="width:100%; height:auto;">
+        </figure>
+        <p class="has-text-centered is-size-7 mt-2">PO Pick-Place After Move</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- Benchmarking Sections -->
+<section class="section">
+  <div class="container is-max-desktop">
+    <h2 class="title is-4 has-text-link">1. Single Task: Camera vs. Camera + KG</h2>
+    <p class="is-size-6">Across Pick, Pick-Place, and Open-Cabinet, adding the knowledge graph improves sample efficiency and final normalized score over camera-only observations.</p>
+    <div class="columns">
+      <div class="column">
+        <figure class="image" style="width:100%; max-width:320px; margin:auto;">
+          <img src="./static/images/assets/results/single-task-camera/pick_camera.png" alt="Pick task camera-only results" style="width:100%; height:auto;">
+        </figure>
+      </div>
+      <div class="column">
+        <figure class="image" style="width:100%; max-width:320px; margin:auto;">
+          <img src="./static/images/assets/results/single-task-camera/pickplace_camera.png" alt="Pick-Place task camera-only results" style="width:100%; height:auto;">
+        </figure>
+      </div>
+      <div class="column">
+        <figure class="image" style="width:100%; max-width:320px; margin:auto;">
+          <img src="./static/images/assets/results/single-task-camera/open_cabinet_camera.png" alt="Open-Cabinet task camera-only results" style="width:100%; height:auto;">
+        </figure>
+      </div>
+    </div>
+    <div class="columns">
+      <div class="column">
+        <figure class="image" style="width:100%; max-width:320px; margin:auto;">
+          <img src="./static/images/assets/results/single-task-knowledge/pick_kg.png" alt="Pick task camera plus knowledge graph results" style="width:100%; height:auto;">
+        </figure>
+      </div>
+      <div class="column">
+        <figure class="image" style="width:100%; max-width:320px; margin:auto;">
+          <img src="./static/images/assets/results/single-task-knowledge/pickplace_kg.png" alt="Pick-Place task camera plus knowledge graph results" style="width:100%; height:auto;">
+        </figure>
+      </div>
+      <div class="column">
+        <figure class="image" style="width:100%; max-width:320px; margin:auto;">
+          <img src="./static/images/assets/results/single-task-knowledge/opencabinet_kg.png" alt="Open-Cabinet task camera plus knowledge graph results" style="width:100%; height:auto;">
+        </figure>
+      </div>
+    </div>
+
+    <h2 class="title is-4 has-text-link">2. Multi-Task Benchmarking</h2>
+    <p class="is-size-6">A single camera-only policy is trained across tasks to select the strongest multi-task baseline before adding structured knowledge in partially observable settings.</p>
+    <figure class="image" style="width:70%; max-width:520px; margin:auto;">
+      <img src="./static/images/assets/results/multitask.png" alt="Multi-task camera-only benchmarking" style="width:100%; height:auto;">
+    </figure>
+
+    <h2 class="title is-4 has-text-link">3. Partial Observability</h2>
+    <p class="is-size-6">In occluded pick-place scenarios, camera + Knowledge Graph observations sharply improve learning over vision-only M3PO by preserving task-relevant object and relation state.</p>
+    <figure class="image" style="width:70%; max-width:520px; margin:auto;">
+      <img src="./static/images/assets/results/partial-obs.png" alt="Partially observable task camera versus camera plus knowledge graph results" style="width:100%; height:auto;">
+    </figure>
+  </div>
+</section>
+
+
+<section class="section" id="BibTeX">
+  <div class="container is-max-desktop content">
+    <h2 class="title">BibTeX</h2>
+    <pre><code>@misc{narendra2026kgm3po,
+      title={Knowledge-Guided Manipulation Using Multi-Task Reinforcement Learning},
+      author={Aditya Narendra and Mukhammadrizo Maribjonov and Dmitry Makarov and Dmitry Yudin and Aleksandr Panov},
+      year={2026},
+      eprint={2603.24083},
+      archivePrefix={arXiv},
+      note={ICRA 2026},
+      url={https://arxiv.org/abs/2603.24083}
+}</code></pre>
+  </div>
+</section>
+
+
+<footer class="footer">
+  <div class="container">
+    <div class="content has-text-centered">
+      <a class="icon-link"
+         href="https://arxiv.org/pdf/2603.24083">
+        <i class="fas fa-file-pdf"></i>
+      </a>
+      <a class="icon-link external-link" href="https://github.com/Ozzey/kg-m3po">
+        <i class="fab fa-github"></i>
+      </a>
+    </div>
+    <div class="columns is-centered">
+      <div class="column is-8">
+        <div class="content">
+          <p>
+            This website is licensed under a <a rel="license"
+                                                href="http://creativecommons.org/licenses/by-sa/4.0/">Creative
+            Commons Attribution-ShareAlike 4.0 International License</a>.
+          </p>
+          <p>
+            <!-- This means you are free to borrow the <a
+              href="https://github.com/nerfies/nerfies.github.io">source code</a> of this website,
+            we just ask that you link back to this page in the footer.
+            Please remember to remove the analytics code included in the header of the website which
+            you do not want on your website. -->
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
