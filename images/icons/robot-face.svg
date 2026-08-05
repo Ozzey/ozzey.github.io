@@ -1,0 +1,52 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" role="img" aria-label="Robot face icon">
+  <defs>
+    <linearGradient id="shell" x1="144" x2="378" y1="92" y2="420" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#eef6ff"/>
+      <stop offset=".28" stop-color="#9ca8ba"/>
+      <stop offset=".68" stop-color="#384255"/>
+      <stop offset="1" stop-color="#111827"/>
+    </linearGradient>
+    <linearGradient id="visor" x1="145" x2="367" y1="196" y2="274" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#070b14"/>
+      <stop offset=".52" stop-color="#101827"/>
+      <stop offset="1" stop-color="#03060c"/>
+    </linearGradient>
+    <linearGradient id="eye" x1="173" x2="333" y1="218" y2="250" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#67e8f9"/>
+      <stop offset=".48" stop-color="#f8fbff"/>
+      <stop offset="1" stop-color="#a78bfa"/>
+    </linearGradient>
+    <filter id="soft-glow" x="-40%" y="-40%" width="180%" height="180%">
+      <feGaussianBlur stdDeviation="9" result="blur"/>
+      <feColorMatrix in="blur" values="0 0 0 0 0.36 0 0 0 0 0.82 0 0 0 0 1 0 0 0 .85 0"/>
+      <feMerge>
+        <feMergeNode/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+    <filter id="shadow" x="-30%" y="-30%" width="160%" height="170%">
+      <feDropShadow dx="0" dy="18" stdDeviation="18" flood-color="#000000" flood-opacity=".5"/>
+    </filter>
+  </defs>
+
+  <g filter="url(#shadow)">
+    <path d="M108 214c0-81 57-136 148-136s148 55 148 136v91c0 83-59 137-148 137s-148-54-148-137v-91Z" fill="url(#shell)"/>
+    <path d="M126 215c0-70 50-119 130-119s130 49 130 119v87c0 72-51 119-130 119s-130-47-130-119v-87Z" fill="#0d1320" opacity=".76"/>
+    <path d="M145 203c0-32 27-56 62-56h98c35 0 62 24 62 56v86c0 38-32 66-73 66h-76c-41 0-73-28-73-66v-86Z" fill="url(#visor)" stroke="#ffffff" stroke-opacity=".12" stroke-width="5"/>
+
+    <path d="M107 249h-27c-15 0-27 12-27 27v44c0 15 12 27 27 27h28" fill="#121827" stroke="#ffffff" stroke-opacity=".1" stroke-width="5"/>
+    <path d="M405 249h27c15 0 27 12 27 27v44c0 15-12 27-27 27h-28" fill="#121827" stroke="#ffffff" stroke-opacity=".1" stroke-width="5"/>
+
+    <g filter="url(#soft-glow)">
+      <rect x="171" y="224" width="76" height="32" rx="16" fill="url(#eye)"/>
+      <rect x="265" y="224" width="76" height="32" rx="16" fill="url(#eye)"/>
+      <path d="M194 313h124" stroke="url(#eye)" stroke-width="12" stroke-linecap="round" opacity=".9"/>
+      <path d="M221 313h14M277 313h14" stroke="#07111c" stroke-width="5" stroke-linecap="round" opacity=".72"/>
+    </g>
+
+    <path d="M178 160c17-14 47-23 78-23s61 9 78 23" fill="none" stroke="#ffffff" stroke-width="8" stroke-linecap="round" opacity=".2"/>
+    <circle cx="179" cy="380" r="8" fill="#dbeafe" opacity=".56"/>
+    <circle cx="333" cy="380" r="8" fill="#dbeafe" opacity=".56"/>
+  </g>
+
+</svg>

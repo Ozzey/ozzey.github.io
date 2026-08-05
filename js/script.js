@@ -1,115 +1,48 @@
-$(window).on("load", function () {
+const navToggle = document.querySelector(".nav-toggle");
+const nav = document.querySelector("#site-nav");
+const year = document.querySelector("[data-year]");
+const revealItems = document.querySelectorAll(".reveal");
+const modeLinks = document.querySelectorAll("[data-mode-link]");
 
-    $(".loader .inner").fadeOut(200, function () {
-        $(".loader").fadeOut(450);
-    });
+if (year) {
+  year.textContent = new Date().getFullYear().toString();
+}
 
-    var $container = $('.items');
-    $container.isotope({
-        filter: '*',
-        animationOptions: {
-            duration: 1500,
-            easing: 'linear',
-            queue: false
-        }
-    });
+if (navToggle && nav) {
+  navToggle.addEventListener("click", () => {
+    const isOpen = nav.classList.toggle("is-open");
+    navToggle.setAttribute("aria-expanded", isOpen.toString());
+  });
 
-})
-
-$(document).ready(function () {
-
-    $('#slides').superslides({
-        animation: 'fade',
-        play: 2500,
-        pagination: false
-    });
-
-    var typed = new Typed(".typed", {
-        strings: ["Web Developer", "Competitive Programmer", "Student"],
-        typeSpeed: 50,
-        loop: true,
-        startDelay: 400,
-        showCursor: false
-
-    });
-
-    var skillsTopOffset = $(".skillsSection").offset().top;
-    var statsTopOffset = $(".statsSection").offset().top;
-    var countUpFinished = false;
-
-    $(window).scroll(function () {
-
-        if (!countUpFinished && window.pageYOffset > statsTopOffset - $(window).height() + 200) {
-            $(".counter").each(function () {
-                var element = $(this);
-                var endVal = parseInt(element.text());
-
-                element.countup(endVal);
-            })
-
-            countUpFinished = true;
-
-
-        }
-
-
-    });
-
-    $("[data-fancybox]").fancybox();
-
-    $("#filters a").click(function () {
-        $('#filters .current').removeClass('current');
-        $(this).addClass("current");
-
-        var selector = $(this).attr("data-filter");
-
-        var $container = $('.items');
-        $container.isotope({
-            filter: selector,
-            animationOptions: {
-                duration: 1500,
-                easing: 'linear',
-                queue: false
-            }
-        });
-
-        return false;
-    });
-
-    $("#navigation li a").click(function (e) {
-        e.preventDefault();
-
-        var targetElement = $(this).attr("href");
-        var targetPosition = $(targetElement).offset().top;
-        $("html, body").animate({ scrollTop: targetPosition - 80 }, "slow");
-
-    });
-
-    const nav = $("#navigation");
-    const navTop = nav.offset().top;
-
-    $(window).on("scroll", stickyNavigation);
-
-    function stickyNavigation() {
-
-        var body = $("body");
-
-        if ($(window).scrollTop() >= navTop) {
-            body.css("padding-top", nav.outerHeight() + "px");
-            body.addClass("fixedNav");
-        }
-        else {
-            body.css("padding-top", 0);
-            body.removeClass("fixedNav");
-        }
-
-
-
-
+  nav.addEventListener("click", (event) => {
+    const target = event.target;
+    if (target instanceof HTMLAnchorElement) {
+      nav.classList.remove("is-open");
+      navToggle.setAttribute("aria-expanded", "false");
     }
+  });
+}
 
+modeLinks.forEach((link) => {
+  link.addEventListener("click", () => {
+    localStorage.setItem("portfolio-mode", "immersive");
+  });
 });
 
-document.querySelector('#blog-link').addEventListener('click', () => {
-    window.location = 'https://ozzey.github.io';
-})
+if ("IntersectionObserver" in window) {
+  const observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("is-visible");
+          observer.unobserve(entry.target);
+        }
+      });
+    },
+    { threshold: 0.12 }
+  );
+
+  revealItems.forEach((item) => observer.observe(item));
+} else {
+  revealItems.forEach((item) => item.classList.add("is-visible"));
+}

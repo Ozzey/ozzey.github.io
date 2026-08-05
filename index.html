@@ -1,391 +1,230 @@
-<!DOCTYPE html>
+<!doctype html>
+<html lang="en">
 
 <head>
-    <title>Aditya Narendra</title>
-    <link rel="shortcut icon" type="image/png" href="images/icons/icon.png">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="theme-color" content=#000000>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#f7f8fb">
     <meta name="description"
-        content="Aditya 'ozzey' Narendra. He is a self taught coder and competitive programmer who is proficient and certified in multiple coding languages including python,javascript & C++">
+        content="Aditya Narendra - robotics and reinforcement learning researcher and master's student at MBZUAI.">
     <meta name="keywords"
-        content="coder, competitive progrrammer, web, dev, Aditya,Ozzey,Narendra">
-    <meta property="og:image" content="images/slide1">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.css">
-    <link rel="stylesheet" type="text/css" href="css/style.css">
-    <!-- Global site tag (gtag.js) - Google Analytics -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-67305507-4"></script>
-    <script>
-        window.dataLayer = window.dataLayer || [];
-        function gtag() { dataLayer.push(arguments); }
-        gtag('js', new Date());
-
-        gtag('config', 'UA-67305507-4');
-    </script>
+        content="Aditya Narendra, robotics, reinforcement learning, control systems, M3PO, KG-M3PO, MBZUAI, MIPT">
+    <meta property="og:title" content="Aditya Narendra">
+    <meta property="og:description" content="Robotics and reinforcement learning researcher.">
+    <meta property="og:image" content="images/profile.jpg">
+    <title>Aditya Narendra</title>
+    <link rel="icon" type="image/svg+xml" href="images/icons/robot-face.svg?v=2">
+    <link rel="shortcut icon" type="image/svg+xml" href="images/icons/robot-face.svg?v=2">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link rel="stylesheet" href="css/style.css">
 </head>
 
 <body>
-    <div class="loader">
-        <div class="inner"></div>
-    </div>
-
-    <div id="slides">
-        <div class="overlay"></div>
-        <div class="slides-container">
-            <img src="images/slide1.jpg" alt="">
-            <img src="images/slide2.jpg" alt="">
-        </div>
-        <div class="TitleMessage">
-            <div class="heading">
-                <p class="main">Aditya Narendra</p>
-                <p class="sub typed"></p>
-            </div>
-        </div>
-
-        <nav class="slides-navigation">
-            <a href="#" class="next"></a>
-            <a href="#" class="prev"></a>
-        </nav>
-    </div>
-
-    <nav id="navigation" class="navbar navbar-expand-lg">
-        <a class="navbar-brand" href="#"></a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
-            aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
+    <header class="template-nav">
+        <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav"
+            aria-label="Toggle navigation">
+            <span></span>
+            <span></span>
+            <span></span>
         </button>
-        <div class="collapse justify-content-center navbar-collapse" id="navbarNav">
-            <ul class="navbar-nav">
-                <li class="nav-item active">
-                    <a class="nav-link" href="#slides">Home <span class="sr-only">(current)</span></a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#about">About Me</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#skills">Skills</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#stats">Stats</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#portfolio">Portfolio</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#contact">Contact</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" id="blog-link" target="_blank" href="https://enterblogurlhere.com">Blog</a>
-                </li>
-            </ul>
-        </div>
-    </nav>
 
-    <section id="about" class="about_profile">
-        <div class="container">
-            <img class="aboutImage" src="images/profile.jpg" alt="">
-        </div>
-        <div class="heading">
-            <h1>Aditya Narendra</h1>
-        </div>
-        <div class="sub_heading">
-            <h5>Student</h5>
-        </div>
-        <div class="resume">
-            <a href="files/'resume'.pdf" class="resumeButton">DOWNLOAD RESUME</a>
-        </div>
-        </div>
-    </section>
-    <section class="about_text">
-        <div class="container">
-            <h3>Hello there,</h3>
-            <p class="about_para">I am Aditya Narendra from Dhanbad,Jharkhand,India.
-              I am a Web Developer who is proficient and certified in multiple coding languages.
-              I completed my 12 years of education from
-              <b>Dhanbad Public School</b> with <b>First class & Distinction </b>
-            </p>
-            <p class="about_para">Apart from being a web developer I'm also a competitive programmer and a tech enthusiast.
-            </p>
-        </div>
-    </section>
+        <nav id="site-nav" class="nav-links" aria-label="Primary navigation">
+            <a href="#home">Home</a>
+            <a href="#about">About Me</a>
+            <a class="initials" href="#home" aria-label="Aditya Narendra home">AN</a>
+            <a href="#publications">Publications</a>
+            <a href="#experience">Experience</a>
+        </nav>
+    </header>
 
-    <div id="skills" class="skillsSection">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-12 text-center">
-                    <hr class="line" width="40%">
-                    <h2>TECHNICAL SKILLS</h2>
-                    <p>A representation of my proficiency in each skill</p>
-                </div>
+    <main>
+        <section id="home" class="home-section section-shell">
+            <div class="avatar-shell reveal">
+                <img src="images/profile.jpg" alt="Aditya Narendra" class="avatar">
             </div>
-        </div>
-    </div>
 
-    <div class="container">
-        <div class="row">
-            <div class="col-md-6">JAVA
-                <div class="progress">
-                    <div class="progress-bar" role="progressbar" style="background-color:#1df79a;width:50%"
-                        aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
-                </div> <br>
-            </div>
-            <div class="col-md-6">Python
-                <div class="progress">
-                    <div class="progress-bar" role="progressbar" style="background-color:#eff317;width: 60%;"
-                        aria-valuenow="60" aria-valuemin="0" aria-valuemax="100"></div>
-                </div> <br>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-md-6">HTML
-                <div class="progress">
-                    <div class="progress-bar" role="progressbar" style="background-color: #ff86e4;width: 90%;"
-                        aria-valuenow="90" aria-valuemin="0" aria-valuemax="100"></div>
-                </div> <br>
-            </div>
-            <div class="col-md-6">C++
-                <div class="progress">
-                    <div class="progress-bar" role="progressbar" style="background-color:#fd6400;width: 40%"
-                        aria-valuenow="40" aria-valuemin="0" aria-valuemax="100"></div>
-                </div> <br>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-md-6">Javascript
-                <div class="progress">
-                    <div class="progress-bar" role="progressbar" style="background-color:#84cd9d;width: 75%"
-                        aria-valuenow="75" aria-valuemin="0" aria-valuemax="100"></div>
-                </div> <br>
-            </div>
-            <div class="col-md-6">CSS
-                <div class="progress">
-                    <div class="progress-bar" role="progressbar" style="background-color:#a06cf4;width: 76%"
-                        aria-valuenow="76" aria-valuemin="0" aria-valuemax="100"></div>
-                </div> <br>
-            </div>
-        </div>
+            <div class="home-copy reveal">
+                <p class="kicker">Robotics Researcher</p>
+                <h1>Hi, I am <span>Aditya</span>.</h1>
+                <h2>I make Robots smarter and safer.</h2>
 
-    </div>
-    <div id="stats" class="statsSection">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-12 text-center">
-                    <hr class="line" width="40%">
-                    <h2>PERSONAL STATS</h2>
-                    <p>Some stats related to my experience and projects.</p>
+                <ul class="mini-bio" aria-label="Profile summary">
+                    <li><strong>Role</strong><span>Master's student, MBZUAI Robotics Department</span></li>
+                    <li><strong>Focus</strong><span>Smarter, safer and more precise manipulation control</span>
+                    </li>
+                    <li><strong>Based</strong><span>Abu Dhabi, UAE</span></li>
+                    <li><strong>Email</strong><span>aditya.narendra@mbzuai.ac.ae</span></li>
+                </ul>
+
+                <div class="social-row" aria-label="Social profiles">
+                    <a href="https://github.com/Ozzey" aria-label="GitHub"><i class="fab fa-github"></i></a>
+                    <a href="https://www.linkedin.com/in/narendra-aditya/" aria-label="LinkedIn"><i
+                            class="fab fa-linkedin"></i></a>
+                    <a href="https://scholar.google.com/citations?hl=en&amp;user=Oh6dzkoAAAAJ"
+                        aria-label="Google Scholar"><i class="fas fa-graduation-cap"></i></a>
+                    <a href="mailto:aditya.narendra@mbzuai.ac.ae" aria-label="Email"><i class="fas fa-envelope"></i></a>
                 </div>
-                <div class="col-md-3 col-sm-6">
-                    <div class="squareItem">
-                        <div class="squareInnerContainer">
-                            <div class="squareIcon">
-                                <i class="fas fa-terminal"></i>
-                            </div>
-                            <div class="squareContent">
-                                <h2> <span class="counter">10</span><span>+</span></h2>
-                                <h3>Shell Scripts & Browser Extensions</h3>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-3 col-sm-6">
-                    <div class="squareItem">
-                        <div class="squareInnerContainer">
-                            <div class="squareIcon">
-                                <i class="fab fa-android"></i>
-                            </div>
-                            <div class="squareContent">
-                                <h2><span class="counter">1</span></h2>
-                                <h3>Android Project</h3>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-3 col-sm-6">
-                    <div class="squareItem">
-                        <div class="squareInnerContainer">
-                            <div class="squareIcon">
-                                <i class="fas fa-download"></i>
-                            </div>
-                            <div class="squareContent">
-                                <h2> <span class="counter">5</span></h2>
-                                <h3>Certificates</h3>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-3 col-sm-6">
-                    <div class="squareItem">
-                        <div class="squareInnerContainer">
-                            <div class="squareIcon">
-                                <i class="fab fa-wordpress"></i>
-                            </div>
-                            <div class="squareContent">
-                                <h2 class="counter">1</h2>
-                                <h3>Website</h3>
-                            </div>
-                        </div>
-                    </div>
+                <div class="hero-actions">
+                    <a class="cta-btn" href="cv/Aditya-Narendra.pdf" download>Download CV</a>
+                    <a class="cta-btn ghost" href="https://ozzey.github.io/Portfolio/">Portfolio</a>
                 </div>
             </div>
-        </div>
-    </div>
-    <div id="portfolio" class="statsSection">
-        <div class="container">
-            <div class="row">
-                <div class="heading">
-                    <hr class="line" width="40%">
-                    <h2>PORTFOLIO</h2>
+        </section>
+
+        <section id="about" class="about-section section-shell">
+            <div class="terminal reveal">
+                <div class="terminal-bar">
+                    <span class="red"></span>
+                    <span class="yellow"></span>
+                    <span class="green"></span>
                 </div>
-                <div class="filter">
-                    <ul id="filters">
-                        <li><a href="#" data-filter="*" class="current">ALL</a></li>
-                        <li><a href="#" class="filter-apps" data-filter=".apps">APPS</a></li>
-                        <li><a href="#" class="filter-certificates" data-filter=".certificates">CERTIFICATE</a></li>
-                        <li><a href="#" class="filter-ui" data-filter=".ui">UI\UX</a></li>
-                        <li><a href="#" class="filter-websites" data-filter=".websites">WEBSITES</a></li>
-                        <li><a href="#" class="filter-other" data-filter=".others">OTHERS</a></li>
-                    </ul>
+                <div class="terminal-body">
+                    <p><span class="prompt">aditya $</span> cat about.txt</p>
+                    <p>I am a robotics and reinforcement learning researcher working on manipulation problems, in
+                        particular making the control smarter, safer and more precise.</p>
+                    <p>I started at MBZUAI as a Research Engineer and am now a master's student in the Robotics
+                        Department and AIRoCS Lab. Previously, I worked with the Center for Cognitive Modeling at MIPT,
+                        where I completed my BSc in Applied Mathematics and Computer Science.</p>
                 </div>
-                <div class="itemsContainer">
-                    <ul class="row items">
-                        <li onclick="" class="ui col-6 col-sm-4 col-md-3 col-lg-3">
-                            <div class="item">
-                                <img src="images/thumbnails/webthumb1.jpg">
-                                <div class="icons">
-                                    <a href="images/portfolio/web1.jpg" title="View Image" class="openButton"
-                                        data-fancybox
-                                        data-caption="THIS IS THE LANDING PAGE OF KOENISEGG REGERA DESIGNED BY ME AND LINKED TO OFFICIAL KOENISEGG WEBSITE.">
-                                        <i class="far fa-eye"></i>
-                                    </a>
-                                    <a href="https://github.com/Ozzey/Koenisegg-Landing-page"
-                                        target="_blank" rel="noopener" class="projectLink">
-                                        <i class="fa fa-link"></i>
-                                    </a>
-                                </div>
-                                <div class="imageOverlay"></div>
-                            </div>
-                        <li onclick="" class="websites col-6 col-sm-4 col-md-3 col-lg-3">
-                            <div class="item">
-                                <img src="images/thumbnails/adithumb.jpg">
-                                <div class="icons">
-                                    <a href="images/portfolio/adi.jpg" title="View Image" class="openButton"
-                                        data-fancybox data-caption="This is my current portfolio">
-                                        <i class="far fa-eye"></i>
-                                    </a>
-                                    <a href="https://ozzey.github.io/" target="_blank" rel="noopener" class="projectLink">
-                                        <i class="fa fa-link"></i>
-                                    </a>
-                                </div>
-                                <div class="imageOverlay"></div>
-                            </div>
-                        </li>
-                        <li onclick="" class="certificates col-6 col-sm-4 col-md-3 col-lg-3">
-                            <div class="item">
-                                <img src="images/thumbnails/certthumb1.jpg">
-                                <div class="icons">
-                                    <a href="images/portfolio/cert1.jpg" title="View Image" class="openButton"
-                                        data-fancybox data-caption="I recieved this certificate after completing 'The Complete Front-End Web Development Course' on Udemy.">
-                                        <i class="far fa-eye"></i>
-                                    </a>
-                                    <a href="https://www.udemy.com/certificate/UC-9eb6d7a8-484b-468d-858c-2387a653d952/" target="_blank"
-                                        rel="noopener" class="projectLink">
-                                        <i class="fa fa-link"></i>
-                                    </a>
-                                </div>
-                                <div class="imageOverlay"></div>
-                            </div>
-                        </li>
-                        <li onclick="" class="certificates col-6 col-sm-4 col-md-3 col-lg-3">
-                            <div class="item">
-                                <img src="images/thumbnails/certthumb2.jpg">
-                                <div class="icons">
-                                    <a href="images/portfolio/cert2.jpg" title="View Image" class="openButton"
-                                        data-fancybox
-                                        data-caption="I recieved this certificate after completing 'The Complete Full-Stack JavaScript Course' on Udemy">
-                                        <i class="far fa-eye"></i>
-                                    </a>
-                                    <a href="https://www.udemy.com/certificate/UC-e3b3154c-06b2-4ddb-8019-1cd4cbd0e5e8/"
-                                        target="_blank" rel="noopener" class="projectLink">
-                                        <i class="fa fa-link"></i>
-                                    </a>
-                                </div>
-                                <div class="imageOverlay"></div>
-                            </div>
-                        </li>
-                        <li onclick="" class="certificates col-6 col-sm-4 col-md-3 col-lg-3">
-                            <div class="item">
-                                <img src="images/thumbnails/certthumb3.jpg">
-                                <div class="icons">
-                                    <a href="images/portfolio/cert3.jpg" title="View Image" class="openButton"
-                                        data-fancybox
-                                        data-caption="I recieved this certificate after completing 'Machine Learning Concepts and Applications of ML Using Python' online course.">
-                                        <i class="far fa-eye"></i>
-                                    </a>
-                                    <a href="https://www.udemy.com/certificate/UC-76e1bf63-b76e-4014-b46f-ef56a34c041e/"
-                                        target="_blank" rel="noopener" class="projectLink">
-                                        <i class="fa fa-link"></i>
-                                    </a>
-                                </div>
-                                <div class="imageOverlay"></div>
-                            </div>
-                        </li>
+            </div>
+
+            <div class="terminal reveal">
+                <div class="terminal-bar">
+                    <span class="red"></span>
+                    <span class="yellow"></span>
+                    <span class="green"></span>
+                </div>
+                <div class="terminal-body">
+                    <p><span class="prompt">aditya $</span> ls research_interests/</p>
+                    <ul class="skill-list">
+                        <li>Multi-task reinforcement learning</li>
+                        <li>Model-based policy optimization</li>
+                        <li>Knowledge graphs for manipulation</li>
+                        <li>Symbolic planning and certified control</li>
+                        <li>Simulation environments and benchmarking</li>
+                        <li>Franka, UR5, UGV and mobile manipulation systems</li>
                     </ul>
                 </div>
             </div>
-        </div>
-    </div>
+        </section>
 
-    <div id="contact" class="contactSection">
-        <div class="col-md-12 text-center">
-            <hr class="line" width="40%">
-            <h2>FOUND MY WORK INTERESTING? </h2>
-            <p>Would love to hear from you!</p>
-            <a href="mailTo:adityanarendra5@gmail.com" class="mailButton">GET IN TOUCH</a>
-        </div>
-        <div class="social">
-            <a href="https://www.facebook.com/aditya.narendra.5" class="facebook" target="_blank " rel="noopener"><i
-                    class="fab fa-facebook fa-2x"></i></a>
-                <a href="https://www.instagram.com/oz.zey" class="instagram" target="_blank" rel="noopener"><i
-                    class="fab fa-instagram fa-2x"></i></a>
-            <a href="https://github.com/Ozzey" class="github" target="_blank" rel="noopener"><i
-                    class="fab fa-github fa-2x"></i></a>
-            <a href="https://www.linkedin.com/in/aditya-narendra-04b59a1b1/" class="linkedin" target="_blank" rel="noopener"><i
-                    class="fab fa-linkedin fa-2x"></i></a>
-            <a href="https://www.youtube.com/c/GamingOzzz" class="youtube"
-                target="_blank" rel="noopener"><i class="fab fa-youtube fa-2x"></i></a>
-        </div>
-    </div>
+        <section id="publications" class="portfolio-section section-shell">
+            <div class="section-heading reveal">
+                <p class="kicker">Publications</p>
+                <h2>Selected publications</h2>
+            </div>
 
-    <div class="creditSection">
-        <div class="col-md-12 text-center">
-            <p>Designed with <span class="heart">&hearts;</span> by <a
-                    href="https://github.com/Ozzey/ozzey.github.io" target="_blank" rel="noopener">Aditya Narendra
-                    </a></p>
-            <p>Special thanks to <a href="https://github.com/lordarcadius/lordarcadius.github.io" target="_blank" rel="noopener">Vipul
-                    Jha</a></p>
-        </div>
-    </div>
-    <div class="copyrightSection">
-        <div class="col-md-12 text-center">
-            <p>&copy; 2021 Aditya Narendra. All rights reserved.</p>
-        </div>
-    </div>
+            <div class="portfolio-grid">
+                <article class="portfolio-card reveal">
+                    <p class="paper-meta">IROS 2025</p>
+                    <h3>M3PO</h3>
+                    <p>Massively Multi-Task Model-Based Policy Optimization for scalable robotic control.</p>
+                    <div class="portfolio-links">
+                        <a href="papers/m3po/">Project Page</a>
+                        <a href="https://arxiv.org/abs/2506.21782">arXiv</a>
+                        <a href="https://github.com/Ozzey/M3PO">Code</a>
+                    </div>
+                </article>
 
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-    <script src="js/security.js"></script>
-    <script src="js/jquery.superslides.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js"></script>
-    <script src="js/countUp.js"></script>
-    <script src="https://unpkg.com/isotope-layout@3.0.6/dist/isotope.pkgd.min.js"></script>
-    <script src="js/countUp-jquery.js"></script>
-    <script src="js/typed.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
-        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
-        crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
-        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
-        crossorigin="anonymous"></script>
+                <article class="portfolio-card reveal">
+                    <p class="paper-meta">ICRA 2026</p>
+                    <h3>KG-M3PO</h3>
+                    <p>Knowledge-guided manipulation using online scene graphs and multi-task reinforcement learning.
+                    </p>
+                    <div class="portfolio-links">
+                        <a href="papers/kg-m3po/">Project Page</a>
+                        <a href="https://arxiv.org/abs/2603.24083">arXiv</a>
+                        <a href="https://github.com/Ozzey/kg-m3po">Code</a>
+                    </div>
+                </article>
+            </div>
+
+            <div class="publication-list reveal">
+                <h3>More publications</h3>
+                <!-- SCHOLAR_PUBLICATIONS_START -->
+                <!-- Generated by scripts/update-scholar-publications.mjs. Do not edit by hand. -->
+                <ul>
+                    <li>
+                        <span>2026</span>
+                        <div>
+                            <strong><a
+                                    href="https://scholar.google.com/citations?view_op=view_citation&amp;hl=en&amp;user=Oh6dzkoAAAAJ&amp;pagesize=100&amp;sortby=pubdate&amp;citation_for_view=Oh6dzkoAAAAJ:Zph67rFs4hoC">From
+                                    Simulation to Contact: A Modular Wrench-Space Deployment Stack for Multi-Task Robot
+                                    Manipulation</a></strong>
+                            <small>A Narendra, A Swikir</small>
+                            <em>IEEE ICRA 2026 Workshop on Cross-Disciplinary aspects of Exploration in ...</em>
+                        </div>
+                    </li>
+                    <li>
+                        <span>2025</span>
+                        <div>
+                            <strong><a
+                                    href="https://scholar.google.com/citations?view_op=view_citation&amp;hl=en&amp;user=Oh6dzkoAAAAJ&amp;pagesize=100&amp;sortby=pubdate&amp;citation_for_view=Oh6dzkoAAAAJ:Y0pCki6q_DkC">Mind
+                                    and motion aligned: a joint evaluation ISAACSIM benchmark for task planning and
+                                    low-level policies in mobile manipulation</a></strong>
+                            <small>NE Kachaev, AN Spiridonov, AS Gorodetsk, KF Muravyev, NS Oskolkov, ...</small>
+                            <em>Doklady Mathematics 112 (2), 400-408, 2025</em>
+                        </div>
+                    </li>
+                    <li>
+                        <span>2024</span>
+                        <div>
+                            <strong><a
+                                    href="https://scholar.google.com/citations?view_op=view_citation&amp;hl=en&amp;user=Oh6dzkoAAAAJ&amp;pagesize=100&amp;sortby=pubdate&amp;citation_for_view=Oh6dzkoAAAAJ:8k81kl-MbHgC">Leveraging
+                                    Single and Multi-task Reinforcement Learning Algorithms</a></strong>
+                            <small>A Narendra, D Makarov, AI Panov</small>
+                            <em>Proceedings of the Eighth International Scientific Conference &quot;Intelligent ...,
+                                2024</em>
+                        </div>
+                    </li>
+                    <li>
+                        <span>2024</span>
+                        <div>
+                            <strong><a
+                                    href="https://scholar.google.com/citations?view_op=view_citation&amp;hl=en&amp;user=Oh6dzkoAAAAJ&amp;pagesize=100&amp;sortby=pubdate&amp;citation_for_view=Oh6dzkoAAAAJ:u-x6o8ySG0sC">Dynamic
+                                    Neural Potential Field: Online Trajectory Optimization in the Presence of Moving
+                                    Obstacles</a></strong>
+                            <small>A Staroverov, M Alhaddad, A Narendra, K Mironov, A Panov</small>
+                            <em>arXiv preprint arXiv:2410.06819, 2024</em>
+                        </div>
+                    </li>
+                </ul>
+                <!-- SCHOLAR_PUBLICATIONS_END -->
+            </div>
+        </section>
+
+        <section id="experience" class="timeline-section section-shell">
+            <div class="section-heading reveal">
+                <p class="kicker">Timeline</p>
+                <h2>Recent research path</h2>
+            </div>
+            <div class="timeline">
+                <div class="timeline-item reveal">
+                    <span>2026</span>
+                    <p>KG-M3PO was accepted to ICRA 2026; started at MBZUAI as a Research Engineer and then became a
+                        master's student in August.</p>
+                </div>
+                <div class="timeline-item reveal">
+                    <span>2025</span>
+                    <p>M3PO published at IROS 2025; graduated from MIPT after a thesis on multi-task RL for
+                        manipulation.</p>
+                </div>
+                <div class="timeline-item reveal">
+                    <span>2024</span>
+                    <p>Research Engineer at the Center for Cognitive Modeling, MIPT.</p>
+                </div>
+                <div class="timeline-item reveal">
+                    <span>2023</span>
+                    <p>Research intern at MIPT, working across control, trajectory optimization, and robot learning.</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        <p>&copy; <span data-year></span> Aditya Narendra</p>
+    </footer>
+
     <script src="js/script.js"></script>
 </body>
 

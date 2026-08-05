@@ -1,0 +1,8 @@
+{
+  "private": true,
+  "scripts": {
+    "update:scholar": "node scripts/update-scholar-publications.mjs",
+    "setup:portfolio": "npm --prefix cool-portfolio install",
+    "build:portfolio": "npm --prefix cool-portfolio run build -- --outDir ../Portfolio --emptyOutDir && cp Portfolio/index.html Portfolio/404.html"
+  }
+}

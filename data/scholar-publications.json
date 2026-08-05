@@ -1,0 +1,88 @@
+{
+  "source": "https://scholar.google.com/citations?user=Oh6dzkoAAAAJ&hl=en&cstart=0&pagesize=100&sortby=pubdate",
+  "fetchedAt": "2026-08-05T17:24:24.671Z",
+  "publications": [
+    {
+      "title": "Knowledge-Guided Manipulation Using Multi-Task Reinforcement Learning",
+      "authors": "A Narendra, M Maribjonov, D Makarov, D Yudin, A Panov",
+      "venue": "arXiv preprint arXiv:2603.24083, 2026",
+      "year": "2026",
+      "url": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=Oh6dzkoAAAAJ&pagesize=100&sortby=pubdate&citation_for_view=Oh6dzkoAAAAJ:kNdYIx-mwKoC",
+      "order": 0
+    },
+    {
+      "title": "From Simulation to Contact: A Modular Wrench-Space Deployment Stack for Multi-Task Robot Manipulation",
+      "authors": "A Narendra, A Swikir",
+      "venue": "IEEE ICRA 2026 Workshop on Cross-Disciplinary aspects of Exploration in ...",
+      "year": "2026",
+      "url": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=Oh6dzkoAAAAJ&pagesize=100&sortby=pubdate&citation_for_view=Oh6dzkoAAAAJ:Zph67rFs4hoC",
+      "order": 5
+    },
+    {
+      "title": "M3PO: Massively Multi-Task Model-Based Policy Optimization",
+      "authors": "A Narendra, D Makarov, A Panov",
+      "venue": "2025 IEEE/RSJ International Conference on Intelligent Robots and Systems ..., 2025",
+      "year": "2025",
+      "url": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=Oh6dzkoAAAAJ&pagesize=100&sortby=pubdate&citation_for_view=Oh6dzkoAAAAJ:KlAtU1dfN6UC",
+      "order": 1
+    },
+    {
+      "title": "Mind and motion aligned: a joint evaluation ISAACSIM benchmark for task planning and low-level policies in mobile manipulation",
+      "authors": "NE Kachaev, AN Spiridonov, AS Gorodetsk, KF Muravyev, NS Oskolkov, ...",
+      "venue": "Doklady Mathematics 112 (2), 400-408, 2025",
+      "year": "2025",
+      "url": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=Oh6dzkoAAAAJ&pagesize=100&sortby=pubdate&citation_for_view=Oh6dzkoAAAAJ:Y0pCki6q_DkC",
+      "order": 2
+    },
+    {
+      "title": "Leveraging Single and Multi-task Reinforcement Learning Algorithms",
+      "authors": "A Narendra, D Makarov, AI Panov",
+      "venue": "Proceedings of the Eighth International Scientific Conference \"Intelligent ..., 2024",
+      "year": "2024",
+      "url": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=Oh6dzkoAAAAJ&pagesize=100&sortby=pubdate&citation_for_view=Oh6dzkoAAAAJ:8k81kl-MbHgC",
+      "order": 3
+    },
+    {
+      "title": "Dynamic Neural Potential Field: Online Trajectory Optimization in the Presence of Moving Obstacles",
+      "authors": "A Staroverov, M Alhaddad, A Narendra, K Mironov, A Panov",
+      "venue": "arXiv preprint arXiv:2410.06819, 2024",
+      "year": "2024",
+      "url": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=Oh6dzkoAAAAJ&pagesize=100&sortby=pubdate&citation_for_view=Oh6dzkoAAAAJ:u-x6o8ySG0sC",
+      "order": 4
+    }
+  ],
+  "renderedPublications": [
+    {
+      "title": "From Simulation to Contact: A Modular Wrench-Space Deployment Stack for Multi-Task Robot Manipulation",
+      "authors": "A Narendra, A Swikir",
+      "venue": "IEEE ICRA 2026 Workshop on Cross-Disciplinary aspects of Exploration in ...",
+      "year": "2026",
+      "url": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=Oh6dzkoAAAAJ&pagesize=100&sortby=pubdate&citation_for_view=Oh6dzkoAAAAJ:Zph67rFs4hoC",
+      "order": 5
+    },
+    {
+      "title": "Mind and motion aligned: a joint evaluation ISAACSIM benchmark for task planning and low-level policies in mobile manipulation",
+      "authors": "NE Kachaev, AN Spiridonov, AS Gorodetsk, KF Muravyev, NS Oskolkov, ...",
+      "venue": "Doklady Mathematics 112 (2), 400-408, 2025",
+      "year": "2025",
+      "url": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=Oh6dzkoAAAAJ&pagesize=100&sortby=pubdate&citation_for_view=Oh6dzkoAAAAJ:Y0pCki6q_DkC",
+      "order": 2
+    },
+    {
+      "title": "Leveraging Single and Multi-task Reinforcement Learning Algorithms",
+      "authors": "A Narendra, D Makarov, AI Panov",
+      "venue": "Proceedings of the Eighth International Scientific Conference \"Intelligent ..., 2024",
+      "year": "2024",
+      "url": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=Oh6dzkoAAAAJ&pagesize=100&sortby=pubdate&citation_for_view=Oh6dzkoAAAAJ:8k81kl-MbHgC",
+      "order": 3
+    },
+    {
+      "title": "Dynamic Neural Potential Field: Online Trajectory Optimization in the Presence of Moving Obstacles",
+      "authors": "A Staroverov, M Alhaddad, A Narendra, K Mironov, A Panov",
+      "venue": "arXiv preprint arXiv:2410.06819, 2024",
+      "year": "2024",
+      "url": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=Oh6dzkoAAAAJ&pagesize=100&sortby=pubdate&citation_for_view=Oh6dzkoAAAAJ:u-x6o8ySG0sC",
+      "order": 4
+    }
+  ]
+}
