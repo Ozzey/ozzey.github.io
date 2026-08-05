@@ -58,6 +58,39 @@ ul {
   padding: 18px 16px 0;
 }
 
+.portfolio-back {
+  position: fixed;
+  right: 24px;
+  bottom: 24px;
+  z-index: 30;
+  min-height: 44px;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 16px;
+  border: 1px solid rgba(18, 25, 38, 0.1);
+  border-radius: 999px;
+  color: var(--ink);
+  font-size: 14px;
+  font-weight: 900;
+  background: rgba(255, 255, 255, 0.9);
+  box-shadow: 0 16px 45px rgba(18, 25, 38, 0.1);
+  backdrop-filter: blur(18px);
+  transition: transform 180ms ease, color 180ms ease, border-color 180ms ease, box-shadow 180ms ease;
+}
+
+.portfolio-back[hidden] {
+  display: none;
+}
+
+.portfolio-back:hover,
+.portfolio-back:focus-visible {
+  transform: translateY(-2px);
+  border-color: rgba(15, 118, 110, 0.3);
+  color: var(--accent);
+  box-shadow: 0 18px 50px rgba(15, 118, 110, 0.14);
+}
+
 .nav-links {
   width: min(100%, var(--max));
   min-height: 64px;
@@ -773,6 +806,14 @@ p {
 
   .hero-actions {
     flex-direction: column;
+  }
+
+  .portfolio-back {
+    right: 16px;
+    bottom: 16px;
+    left: 16px;
+    max-width: calc(100vw - 32px);
+    justify-content: center;
   }
 
   .publication-list li {

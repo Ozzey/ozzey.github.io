@@ -3,6 +3,7 @@ const nav = document.querySelector("#site-nav");
 const year = document.querySelector("[data-year]");
 const revealItems = document.querySelectorAll(".reveal");
 const modeLinks = document.querySelectorAll("[data-mode-link]");
+const portfolioBack = document.querySelector("[data-portfolio-back]");
 
 if (year) {
   year.textContent = new Date().getFullYear().toString();
@@ -28,6 +29,31 @@ modeLinks.forEach((link) => {
     localStorage.setItem("portfolio-mode", "immersive");
   });
 });
+
+if (portfolioBack instanceof HTMLAnchorElement) {
+  const params = new URLSearchParams(window.location.search);
+  const fromPortfolioParam = params.get("from") === "portfolio";
+  let fromPortfolioReferrer = false;
+
+  try {
+    const referrer = document.referrer ? new URL(document.referrer) : null;
+    fromPortfolioReferrer =
+      referrer?.origin === window.location.origin &&
+      referrer.pathname.startsWith("/Portfolio/");
+  } catch {
+    fromPortfolioReferrer = false;
+  }
+
+  if (fromPortfolioParam || fromPortfolioReferrer) {
+    portfolioBack.hidden = false;
+
+    if (fromPortfolioParam && window.history.replaceState) {
+      const cleanUrl = new URL(window.location.href);
+      cleanUrl.searchParams.delete("from");
+      window.history.replaceState({}, "", cleanUrl.pathname + cleanUrl.search + cleanUrl.hash);
+    }
+  }
+}
 
 if ("IntersectionObserver" in window) {
   const observer = new IntersectionObserver(

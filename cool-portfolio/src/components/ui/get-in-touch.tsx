@@ -107,7 +107,7 @@ export const ProfessionalConnect = () => {
         <div className="absolute bottom-20 right-20 w-96 h-96 bg-white/10 rounded-full blur-[128px] animate-pulse delay-700"></div>
       </div>
 
-      <div className="relative z-10 flex flex-col items-center justify-center min-h-screen p-8">
+      <div className="relative z-10 flex flex-col items-center justify-center min-h-screen p-5 sm:p-8">
         <div className={`text-center mb-16 transition-all duration-1000 ${isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
           <div className="inline-block mb-4 px-4 py-1.5 bg-white/5 rounded-full border border-white/10">
             <span className="text-sm font-medium text-white/80">
@@ -126,7 +126,7 @@ export const ProfessionalConnect = () => {
           </p>
         </div>
 
-        <div className="grid grid-cols-2 md:grid-cols-3 gap-6 max-w-5xl mx-auto">
+        <div className="grid w-full max-w-5xl grid-cols-1 gap-5 sm:grid-cols-2 md:grid-cols-3 md:gap-6">
           {socialPlatforms.map((platform, index) => (
             <a
               key={platform.name}
@@ -137,7 +137,7 @@ export const ProfessionalConnect = () => {
               onMouseEnter={() => setHoveredIndex(index)}
               onMouseLeave={() => setHoveredIndex(null)}
             >
-              <div className="relative bg-gradient-to-br from-neutral-900/70 to-neutral-950/70 backdrop-blur-xl rounded-2xl p-8 border border-white/10 overflow-hidden transition-all duration-500 hover:scale-105 hover:border-white/20">
+              <div className="relative bg-gradient-to-br from-neutral-900/70 to-neutral-950/70 backdrop-blur-xl rounded-2xl p-6 border border-white/10 overflow-hidden transition-all duration-500 hover:scale-105 hover:border-white/20 sm:p-8">
                 <div
                   className={`absolute inset-0 bg-gradient-to-br ${platform.gradient} opacity-0 group-hover:opacity-10 transition-opacity duration-500`}
                 ></div>

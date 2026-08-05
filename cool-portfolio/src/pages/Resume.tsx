@@ -2,7 +2,10 @@ import { useEffect } from "react";
 
 export function ResumePage() {
   useEffect(() => {
-    window.location.replace("https://ozzey.github.io/");
+    const resumeUrl = new URL("/", window.location.origin);
+    resumeUrl.searchParams.set("from", "portfolio");
+
+    window.location.replace(resumeUrl.toString());
   }, []);
 
   return null;

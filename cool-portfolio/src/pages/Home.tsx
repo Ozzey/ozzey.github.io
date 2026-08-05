@@ -10,22 +10,22 @@ export function HomePage() {
   return (
     <div className="min-h-screen bg-black text-white">
       <WavyBackground className="w-full">
-        <div className="pt-28 px-6">
+        <div className="px-4 pt-24 sm:px-6 sm:pt-28">
           <div className="mx-auto max-w-6xl">
             <Card className="w-full bg-black/[0.96] border border-white/10 relative overflow-hidden">
               <Spotlight className="-top-40 left-0 md:left-60 md:-top-20" fill="white" />
-              <div className="relative h-[360px] md:h-[460px] lg:h-[560px]">
+              <div className="relative h-[640px] sm:h-[580px] md:h-[520px] lg:h-[560px]">
                 <SplineScene
                   scene="https://prod.spline.design/kZDDjO5HuC9GJUM2/scene.splinecode"
                   className="w-full h-full"
                 />
                 <div className="pointer-events-none absolute inset-0 bg-gradient-to-r from-black/75 via-black/40 to-transparent" />
-                <div className="pointer-events-none absolute inset-0 p-8 md:p-12 flex items-center">
+                <div className="pointer-events-none absolute inset-0 flex items-center p-5 sm:p-8 md:p-12">
                   <div className="max-w-2xl">
                     <div className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-3 py-1 text-xs text-white/70">
                       MBZUAI - AIRoCS Lab
                     </div>
-                    <h1 className="mt-4 text-4xl md:text-5xl lg:text-6xl font-bold bg-clip-text text-transparent bg-gradient-to-b from-neutral-50 to-neutral-400">
+                    <h1 className="mt-4 text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold bg-clip-text text-transparent bg-gradient-to-b from-neutral-50 to-neutral-400">
                       Hi, I am Aditya.
                     </h1>
                     <div className="mt-2 text-xl md:text-2xl font-semibold text-white/85">
@@ -77,55 +77,55 @@ export function HomePage() {
         </div>
       </WavyBackground>
 
-      <div className="px-6 pt-10 pb-20">
+      <div className="px-4 pt-10 pb-20 sm:px-6">
         <div className="mx-auto max-w-6xl space-y-16">
           <section className="grid grid-cols-1 lg:grid-cols-2 gap-10 items-start">
             <div>
               <NowStatusCard />
             </div>
             <div>
-              <Card className="w-full bg-black/[0.96] border border-white/10 relative overflow-hidden p-10">
+              <Card className="w-full bg-black/[0.96] border border-white/10 relative overflow-hidden p-6 sm:p-10">
                 <Spotlight className="-top-40 left-0 md:left-60 md:-top-20" fill="white" />
                 <div className="mb-4">
                   <h2 className="text-3xl md:text-4xl font-bold bg-clip-text text-transparent bg-gradient-to-b from-neutral-50 to-neutral-400">
                     Research interests
                   </h2>
                 </div>
-                <div className="grid [grid-template-areas:'stack'] place-items-center opacity-100 animate-in fade-in-0 duration-700 min-h-[320px]">
+                <div className="flex flex-col gap-4 opacity-100 animate-in fade-in-0 duration-700 sm:grid sm:[grid-template-areas:'stack'] sm:place-items-center sm:min-h-[320px]">
                   {[
                     {
                       title: "Reinforcement Learning",
                       description: "Generalization across mobile and bimanual tasks with RL.",
                       className:
-                        "[grid-area:stack] hover:-translate-y-10 before:absolute before:w-[100%] before:outline-1 before:rounded-xl before:outline-white/20 before:h-[100%] before:content-[''] before:bg-blend-overlay before:bg-black/50 grayscale-[100%] hover:before:opacity-0 before:transition-opacity before:duration-700 hover:grayscale-0 before:left-0 before:top-0",
+                        "sm:[grid-area:stack] hover:-translate-y-2 sm:hover:-translate-y-10 before:absolute before:w-[100%] before:outline-1 before:rounded-xl before:outline-white/20 before:h-[100%] before:content-[''] before:bg-blend-overlay before:bg-black/50 grayscale-[100%] hover:before:opacity-0 before:transition-opacity before:duration-700 hover:grayscale-0 before:left-0 before:top-0",
                     },
                     {
                       title: "Symbolic planning & control",
                       description: "Task-level planning + control synthesis for robust manipulation.",
                       className:
-                        "[grid-area:stack] translate-x-16 translate-y-10 hover:-translate-y-1 before:absolute before:w-[100%] before:outline-1 before:rounded-xl before:outline-white/20 before:h-[100%] before:content-[''] before:bg-blend-overlay before:bg-black/50 grayscale-[100%] hover:before:opacity-0 before:transition-opacity before:duration-700 hover:grayscale-0 before:left-0 before:top-0",
+                        "sm:[grid-area:stack] sm:translate-x-16 sm:translate-y-10 hover:-translate-y-2 sm:hover:-translate-y-1 before:absolute before:w-[100%] before:outline-1 before:rounded-xl before:outline-white/20 before:h-[100%] before:content-[''] before:bg-blend-overlay before:bg-black/50 grayscale-[100%] hover:before:opacity-0 before:transition-opacity before:duration-700 hover:grayscale-0 before:left-0 before:top-0",
                     },
                     {
                       title: "Robotic Manipulation",
                       description: "Evaluation pipelines that close the sim-to-real loop.",
                       className:
-                        "[grid-area:stack] translate-x-32 translate-y-20 hover:translate-y-10",
+                        "sm:[grid-area:stack] sm:translate-x-32 sm:translate-y-20 sm:hover:translate-y-10",
                     },
                     {
                       title: "Model Based Learning",
                       description: "World models and planning-aware representations for control.",
                       className:
-                        "[grid-area:stack] translate-x-48 translate-y-28 hover:translate-y-16",
+                        "sm:[grid-area:stack] sm:translate-x-48 sm:translate-y-28 sm:hover:translate-y-16",
                     },
                   ].map((card, index) => (
                     <div
                       key={index}
-                      className={`relative flex h-36 w-[22rem] -skew-y-[8deg] select-none flex-col justify-between rounded-xl border-2 bg-white/5 backdrop-blur-sm px-4 py-3 transition-all duration-700 after:absolute after:-right-1 after:top-[-5%] after:h-[110%] after:w-[20rem] after:bg-gradient-to-l after:from-black after:to-transparent after:content-[''] hover:border-white/20 hover:bg-white/10 ${card.className}`}
+                      className={`relative flex min-h-36 w-full max-w-[22rem] -skew-y-[8deg] select-none flex-col justify-between rounded-xl border-2 bg-white/5 backdrop-blur-sm px-4 py-3 transition-all duration-700 after:absolute after:-right-1 after:top-[-5%] after:hidden after:h-[110%] after:w-[20rem] after:bg-gradient-to-l after:from-black after:to-transparent after:content-[''] hover:border-white/20 hover:bg-white/10 sm:after:block ${card.className}`}
                     >
                       <div>
                         <p className="text-lg font-medium text-white">{card.title}</p>
                       </div>
-                      <p className="whitespace-nowrap text-sm text-white/80">
+                      <p className="text-sm leading-relaxed text-white/80">
                         {card.description}
                       </p>
                     </div>
@@ -191,7 +191,7 @@ export function HomePage() {
           </section>
 
           <section>
-            <Card className="w-full bg-black/[0.96] border border-white/10 relative overflow-hidden p-10">
+            <Card className="w-full bg-black/[0.96] border border-white/10 relative overflow-hidden p-6 sm:p-10">
               <Spotlight className="-top-40 left-0 md:left-60 md:-top-20" fill="white" />
               <div className="mb-6">
                 <h2 className="text-3xl md:text-4xl font-bold bg-clip-text text-transparent bg-gradient-to-b from-neutral-50 to-neutral-400">

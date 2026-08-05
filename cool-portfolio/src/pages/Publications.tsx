@@ -169,7 +169,7 @@ export function PublicationsPage() {
   const otherPapers = sortedPapers.filter((paper) => !paper.featured);
 
   const renderPaperCards = (papers: typeof sortedPapers) => (
-    <div className="flex flex-wrap justify-center gap-10">
+    <div className="flex flex-wrap justify-center gap-x-10 gap-y-12">
       {papers.map((paper, index) => {
         const titleLength = paper.title.length;
         const collapsedHeight =
@@ -180,7 +180,10 @@ export function PublicationsPage() {
           index % 2 === 0 ? "md:-translate-y-6" : "md:translate-y-4";
 
         return (
-          <div key={paper.title} className={`transition-transform ${offsetClass}`}>
+          <div
+            key={paper.title}
+            className={`w-full max-w-[320px] transition-transform ${offsetClass}`}
+          >
             <GlassCard
               {...paper}
               badgeText={getBadgeText(paper.conference)}
@@ -197,9 +200,9 @@ export function PublicationsPage() {
   return (
     <div className="min-h-screen bg-black text-white relative overflow-hidden">
       <WavyBackground className="w-full">
-        <div className="pt-28 px-6">
+        <div className="px-4 pt-24 sm:px-6 sm:pt-28">
           <div className="mx-auto max-w-6xl">
-            <Card className="w-full bg-black/[0.96] relative overflow-hidden p-10">
+            <Card className="w-full bg-black/[0.96] relative overflow-hidden p-6 sm:p-10">
               <Spotlight className="-top-40 left-0 md:left-60 md:-top-20" fill="white" />
               <div className="relative space-y-16">
                 <section>

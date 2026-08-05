@@ -42,15 +42,15 @@ const GlassCard = React.forwardRef(function GlassCard(
   return (
     <div
       ref={ref}
-      className={`group ${showExpandedContent ? expandedHeight : collapsedHeight} w-[320px] [perspective:1000px] transition-[height] duration-300 ease-out ${className ?? ""}`}
+      className={`group ${showExpandedContent ? expandedHeight : collapsedHeight} w-full max-w-[320px] [perspective:1000px] transition-[height] duration-300 ease-out ${className ?? ""}`}
       {...props}
     >
       <div
-        className={`relative h-full rounded-[50px] shadow-2xl transition-all duration-500 ease-in-out [transform-style:preserve-3d] ${
+        className={`relative h-full overflow-hidden rounded-[50px] shadow-2xl transition-all duration-500 ease-in-out [transform-style:preserve-3d] ${
           showExpandedContent
             ? "bg-black/95 backdrop-blur-xl ring-1 ring-white/20"
             : "bg-gradient-to-br from-zinc-900 via-zinc-950 to-black"
-        } group-hover:[box-shadow:rgba(0,0,0,0.3)_30px_50px_25px_-40px,rgba(0,0,0,0.1)_0px_25px_30px_0px] group-hover:[transform:rotate3d(1,1,0,30deg)]`}
+        } md:group-hover:[box-shadow:rgba(0,0,0,0.3)_30px_50px_25px_-40px,rgba(0,0,0,0.1)_0px_25px_30px_0px] md:group-hover:[transform:rotate3d(1,1,0,30deg)]`}
       >
         <div
           className="absolute -bottom-10 left-8 h-64 w-40 rounded-[32px] blur-[18px] opacity-80"

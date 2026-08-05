@@ -153,7 +153,7 @@ function SkewCard({
   imageSrc?: string;
 }) {
   return (
-    <div className="group relative w-[320px] h-[460px] m-[40px_30px] transition-all duration-500">
+    <div className="group relative mx-auto my-8 h-[440px] w-full max-w-[320px] transition-all duration-500 sm:m-[40px_30px] sm:h-[460px]">
       <span
         className="absolute top-0 left-[50px] w-1/2 h-full rounded-lg transform skew-x-[15deg] transition-all duration-500 group-hover:skew-x-0 group-hover:left-[20px] group-hover:w-[calc(100%-90px)]"
         style={{ background: `linear-gradient(315deg, ${gradientFrom}, ${gradientTo})` }}
@@ -166,7 +166,7 @@ function SkewCard({
         <span className="absolute top-0 left-0 w-0 h-0 rounded-lg opacity-0 bg-[rgba(255,255,255,0.08)] backdrop-blur-[10px] shadow-[0_5px_15px_rgba(0,0,0,0.2)] transition-all duration-100 animate-blob group-hover:top-[-50px] group-hover:left-[50px] group-hover:w-[100px] group-hover:h-[100px] group-hover:opacity-100" />
         <span className="absolute bottom-0 right-0 w-0 h-0 rounded-lg opacity-0 bg-[rgba(255,255,255,0.08)] backdrop-blur-[10px] shadow-[0_5px_15px_rgba(0,0,0,0.2)] transition-all duration-500 animate-blob animation-delay-1000 group-hover:bottom-[-50px] group-hover:right-[50px] group-hover:w-[100px] group-hover:h-[100px] group-hover:opacity-100" />
       </span>
-      <div className="relative z-20 left-0 p-[24px_40px] bg-[rgba(255,255,255,0.05)] backdrop-blur-[10px] shadow-lg rounded-lg text-white transition-all duration-500 group-hover:left-[-25px] group-hover:p-[60px_40px]">
+      <div className="relative z-20 left-0 p-6 bg-[rgba(255,255,255,0.05)] backdrop-blur-[10px] shadow-lg rounded-lg text-white transition-all duration-500 sm:p-[24px_40px] sm:group-hover:left-[-25px] sm:group-hover:p-[60px_40px]">
         <div className="mb-4 h-28 w-full rounded-lg bg-gradient-to-br from-white/10 to-white/5 border border-white/10 overflow-hidden">
           {imageSrc ? (
             <img
@@ -192,11 +192,11 @@ export function ProjectsPage() {
   return (
     <div className="min-h-screen bg-black text-white relative">
       <WaveBackground />
-      <div className="relative z-10 pt-28 px-6">
+      <div className="relative z-10 px-4 pt-24 sm:px-6 sm:pt-28">
         <div className="mx-auto max-w-6xl">
           <Card className="w-full bg-black/[0.96] relative overflow-hidden mb-16">
             <Spotlight className="-top-40 left-0 md:left-60 md:-top-20" fill="white" />
-            <div className="p-10">
+            <div className="p-6 sm:p-10">
               <div className="mb-6">
                 <h1 className="text-4xl md:text-5xl font-bold bg-clip-text text-transparent bg-gradient-to-b from-neutral-50 to-neutral-400">
                   Flagship Builds
