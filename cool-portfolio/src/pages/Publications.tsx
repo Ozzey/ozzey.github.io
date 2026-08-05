@@ -207,9 +207,6 @@ export function PublicationsPage() {
                     <h1 className="text-4xl md:text-5xl font-bold bg-clip-text text-transparent bg-gradient-to-b from-neutral-50 to-neutral-400">
                       Featured Publications
                     </h1>
-                    <p className="mt-3 max-w-2xl text-sm text-neutral-300">
-                      Papers with dedicated project pages.
-                    </p>
                   </div>
                   {renderPaperCards(featuredPapers)}
                 </section>
@@ -219,9 +216,6 @@ export function PublicationsPage() {
                     <h2 className="text-3xl md:text-4xl font-bold bg-clip-text text-transparent bg-gradient-to-b from-neutral-50 to-neutral-400">
                       Other Publications
                     </h2>
-                    <p className="mt-3 max-w-2xl text-sm text-neutral-300">
-                      Additional entries from the scraped Google Scholar profile data.
-                    </p>
                   </div>
                   {renderPaperCards(otherPapers)}
                 </section>
