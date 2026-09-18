@@ -1,0 +1,175 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#fafbf8" />
+    <meta name="description" content="M4PO: Massively Multi-Task Multi-Embodiment Model-Based Policy Optimization. A hierarchical world model for manipulation across tasks and robot embodiments." />
+    <meta property="og:title" content="M4PO · One world model. Many embodiments." />
+    <meta property="og:description" content="Explore the method, simulation demonstrations, and manuscript results for M4PO." />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://ozzey.github.io/papers/m4po/" />
+    <meta property="og:image" content="https://ozzey.github.io/papers/m4po/assets/architecture.webp" />
+    <link rel="canonical" href="https://ozzey.github.io/papers/m4po/" />
+    <title>M4PO · Multi-Task, Multi-Embodiment World Models</title>
+    <link rel="icon" href="./favicon.svg" type="image/svg+xml" />
+    <link rel="stylesheet" href="./styles.css" />
+    <script src="./script.js" type="module"></script>
+  </head>
+  <body>
+    <a class="skip-link" href="#main">Skip to content</a>
+    <header class="site-header" id="top">
+      <a class="portfolio-link" href="/"><span aria-hidden="true">↖</span> Aditya Narendra <span class="portfolio-label">/ Research</span></a>
+      <nav aria-label="Project navigation">
+        <a href="#method">Method</a>
+        <a href="#results">Results</a>
+        <a href="#demos">Demos</a>
+        <details class="research-menu">
+          <summary>More research</summary>
+          <div class="research-dropdown">
+            <a href="../m3po/">M3PO</a>
+            <a href="../kg-m3po/">KG-M3PO</a>
+            <a href="./" aria-current="page">M4PO</a>
+          </div>
+        </details>
+        <a class="nav-code" href="https://github.com/Ozzey/M4PO">GitHub <span aria-hidden="true">↗</span></a>
+      </nav>
+    </header>
+
+    <main id="main">
+      <section class="hero section-width" aria-labelledby="project-title">
+        <p class="eyebrow"><span class="status-dot" aria-hidden="true"></span> World models for embodied intelligence</p>
+        <h1 id="project-title">M<span>4</span>PO</h1>
+        <p class="paper-title">Massively Multi-Task Multi-Embodiment<br class="desktop-break" /> Model-Based Policy Optimization</p>
+        <p class="hero-summary">One world model. Many tasks. Different bodies.</p>
+        <div class="resource-links">
+          <a class="button button-dark" href="./assets/m4po.pdf"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M14 3H6a1 1 0 0 0-1 1v16a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V8zM14 3v5h5M9 13h6M9 17h6" /></svg>Paper <span aria-hidden="true">↗</span></a>
+          <a class="button button-dark" href="https://github.com/Ozzey/M4PO"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m8 7-5 5 5 5m8-10 5 5-5 5m-3-14-2 18" /></svg>Code <span aria-hidden="true">↗</span></a>
+          <a class="button button-light" href="#demos"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m9 5 11 7-11 7z" /></svg>Watch demos</a>
+        </div>
+      </section>
+
+      <section class="demo-section section-width" id="demos" aria-labelledby="demo-title">
+        <div class="section-topline">
+          <h2 class="small-heading" id="demo-title">A shared model, in motion</h2>
+          <span class="micro-label"><span class="status-dot" aria-hidden="true"></span> Simulation demonstrations</span>
+        </div>
+        <div class="demo-stage">
+          <div class="demo-toolbar">
+            <div class="tab-list demo-tabs" data-tab-group="demos" role="tablist" aria-label="Robot demonstrations">
+              <button class="tab" id="tab-franka" role="tab" aria-selected="true" aria-controls="panel-franka" tabindex="0">Franka <span>Cabinet</span></button>
+              <button class="tab" id="tab-ur5" role="tab" aria-selected="false" aria-controls="panel-ur5" tabindex="-1">UR5 <span>Stacking</span></button>
+              <button class="tab" id="tab-g1" role="tab" aria-selected="false" aria-controls="panel-g1" tabindex="-1">Unitree G1 <span>Lifting</span></button>
+            </div>
+            <button class="playback-button" id="video-toggle" type="button" hidden>Play demo <span aria-hidden="true">▷</span></button>
+          </div>
+          <div class="demo-panel" id="panel-franka" role="tabpanel" aria-labelledby="tab-franka" tabindex="0">
+            <video controls muted loop playsinline preload="metadata" poster="./assets/franka-cabinet.webp" aria-label="Franka opens a cabinet in simulation, shown from two viewpoints">
+              <source src="./assets/franka-cabinet.mp4" type="video/mp4" />
+              <a href="./assets/franka-cabinet.mp4">Watch the Franka cabinet demonstration</a>.
+            </video>
+            <div class="demo-caption"><p><strong>Articulated manipulation.</strong> A Franka arm interacts with a cabinet.</p><a href="https://github.com/Ozzey/M4PO/blob/main/assets/videos/sim/franka_cabinet_v2_5eps_scene_closeup.mp4">Full clip <span aria-hidden="true">↗</span></a></div>
+          </div>
+          <div class="demo-panel" id="panel-ur5" role="tabpanel" aria-labelledby="tab-ur5" tabindex="0" hidden>
+            <video controls muted loop playsinline preload="none" poster="./assets/ur5-stacking.webp" aria-label="UR5 performs object stacking in simulation, shown from two viewpoints">
+              <source src="./assets/ur5-stacking.mp4" type="video/mp4" />
+              <a href="./assets/ur5-stacking.mp4">Watch the UR5 stacking demonstration</a>.
+            </video>
+            <div class="demo-caption"><p><strong>Multi-object manipulation.</strong> A UR5 arm stacks objects.</p><a href="https://github.com/Ozzey/M4PO/blob/main/assets/videos/sim/ur5_stack_5eps_stitched.mp4">Full clip <span aria-hidden="true">↗</span></a></div>
+          </div>
+          <div class="demo-panel" id="panel-g1" role="tabpanel" aria-labelledby="tab-g1" tabindex="0" hidden>
+            <video controls muted loop playsinline preload="none" poster="./assets/g1-lifting.webp" aria-label="Unitree G1 humanoid lifts an object in simulation, shown from two viewpoints">
+              <source src="./assets/g1-lifting.mp4" type="video/mp4" />
+              <a href="./assets/g1-lifting.mp4">Watch the Unitree G1 lifting demonstration</a>.
+            </video>
+            <div class="demo-caption"><p><strong>Humanoid manipulation.</strong> A Unitree G1 lifts an object.</p><a href="https://github.com/Ozzey/M4PO/blob/main/assets/videos/sim/g1_static_lift_metallic_stitched.mp4">Full clip <span aria-hidden="true">↗</span></a></div>
+          </div>
+        </div>
+        <p class="figure-note">Supplied supplementary simulation clips at normal speed. Franka and UR5 loop an 8-second excerpt; G1 shows the full clip.</p>
+        <noscript><p class="figure-note">JavaScript is off. View the other demos: <a href="./assets/ur5-stacking.mp4">UR5 stacking</a> · <a href="./assets/g1-lifting.mp4">G1 lifting</a>. All result tables remain available below.</p></noscript>
+      </section>
+
+      <section class="metrics section-width" aria-label="Manuscript highlights">
+        <div class="metric"><p class="metric-number">54.3<span>%</span></p><p class="metric-label">Average success</p><p class="metric-detail">Across tasks &amp; embodiments</p></div>
+        <div class="metric"><p class="metric-number">+15.2<span>pp</span></p><p class="metric-label">Over the NEWT baseline</p><p class="metric-detail">Multi-embodiment average success</p></div>
+        <div class="metric"><p class="metric-number">85<span>/100</span></p><p class="metric-label">Successful hardware trials</p><p class="metric-detail">Across five evaluation conditions</p></div>
+        <p class="metrics-source">Reported in the manuscript · <a href="#results">Evaluation details below <span aria-hidden="true">↓</span></a></p>
+      </section>
+
+      <section class="abstract section-width section-space" aria-labelledby="abstract-title">
+        <div class="section-heading"><p class="eyebrow">01 / The idea</p><h2 id="abstract-title">Shared knowledge.<br />Different dynamics.</h2></div>
+        <div class="prose">
+          <p class="lead">Robots can share an understanding of a task without sharing the same body.</p>
+          <p>M4PO studies how a single model-based policy can learn manipulation across tasks and robot embodiments. Its hierarchical world model separates task progress from embodiment-specific dynamics, then brings them together to predict what happens next.</p>
+          <p>Multimodal observations and a shared, masked action interface connect different robots to the same model. Stochastic planning in latent space turns those predictions into actions, spanning fixed-base, dexterous, and humanoid manipulation.</p>
+          <a class="text-link" href="./assets/m4po.pdf">Read the full paper <span aria-hidden="true">↗</span></a>
+        </div>
+      </section>
+
+      <section class="method section-space" id="method" aria-labelledby="method-title">
+        <div class="section-width">
+          <div class="section-heading centered"><p class="eyebrow">02 / The method</p><h2 id="method-title">Imagine across embodiments.<br />Plan in a shared latent space.</h2><p class="section-description">A task–embodiment hierarchy connects perception, prediction, and control.</p></div>
+          <figure class="architecture-figure">
+            <div class="architecture-toolbar"><span class="micro-label">M4PO architecture</span><div><button class="text-button" id="architecture-toggle" type="button" hidden>Pause animation</button><a href="./assets/architecture.svg">Open full size <span aria-hidden="true">↗</span></a></div></div>
+            <object class="architecture" id="architecture" data="./assets/architecture.svg" type="image/svg+xml" aria-label="Animated M4PO architecture: multimodal observations enter a task–embodiment world model, which supports latent planning, policy optimization, and exploration."><a href="./assets/architecture.svg"><img src="./assets/architecture.webp" width="1920" height="1081" alt="M4PO architecture showing a hierarchical world model, latent planning, policy optimization, and exploration." /></a></object>
+            <figcaption>The predicted embodiment transition conditions task-level dynamics. A stochastic MPPI planner evaluates candidate action sequences inside the learned model.</figcaption>
+          </figure>
+          <div class="method-grid">
+            <article><span class="step-number">01</span><h3>Observe &amp; condition</h3><p>Combine RGB-D, proprioception, structured state, task language, and embodiment context.</p></article>
+            <article><span class="step-number">02</span><h3>Factorize &amp; predict</h3><p>Represent task progress and robot state separately, while coupling their predicted transitions.</p></article>
+            <article><span class="step-number">03</span><h3>Plan &amp; act</h3><p>Score stochastic action sequences in latent space; execute through normalized, embodiment-masked controls.</p></article>
+            <article><span class="step-number">04</span><h3>Learn from interaction</h3><p>Train the world model and planner-policy from fresh rollouts, with value discrepancy guiding exploration.</p></article>
+          </div>
+        </div>
+      </section>
+
+      <section class="results section-width section-space" id="results" aria-labelledby="results-title">
+        <div class="section-heading centered"><p class="eyebrow">03 / The evidence</p><h2 id="results-title">Better across tasks.<br />Stronger across embodiments.</h2><p class="section-description">Manuscript-reported results on IsaacLab manipulation benchmarks.</p></div>
+        <div class="benchmark-context"><span class="context-label">Evaluation protocol</span><p>Three seeds · 100 evaluation episodes per task–embodiment pair. The comparisons below use the paper’s IsaacLab settings, distinct from NEWT’s 200-task MMBench.</p></div>
+        <div class="tab-list result-tabs" data-tab-group="results" role="tablist" aria-label="Benchmark setting">
+          <button class="tab" id="tab-multi" role="tab" aria-selected="true" aria-controls="panel-multi" tabindex="0">Multi-embodiment</button>
+          <button class="tab" id="tab-paradigm" role="tab" aria-selected="false" aria-controls="panel-paradigm" tabindex="-1">Within-paradigm</button>
+          <button class="tab" id="tab-arena" role="tab" aria-selected="false" aria-controls="panel-arena" tabindex="-1">Expanded Arena</button>
+        </div>
+
+        <div class="result-panel" id="panel-multi" role="tabpanel" aria-labelledby="tab-multi" tabindex="0">
+          <div class="result-summary"><div><h3>One policy across tasks and bodies</h3><p>M4PO improves both average performance and the least-successful embodiment.</p></div><div class="result-callout"><strong>+12.7 pp</strong><span>worst-embodiment success vs. NEWT</span></div></div>
+          <div class="table-scroll" role="region" aria-label="Multi-embodiment results" tabindex="0">
+            <table><caption>Multi-embodiment, multi-task manipulation · manuscript Table V</caption><thead><tr><th scope="col">Metric <span>↑ higher is better</span></th><th scope="col">NEWT</th><th scope="col">M4PO</th></tr></thead><tbody><tr><th scope="row">Average success (%)</th><td>39.1</td><td class="best">54.3</td></tr><tr><th scope="row">Worst-embodiment success (%)</th><td>32.4</td><td class="best">45.1</td></tr><tr><th scope="row">Average return</th><td>0.46</td><td class="best">0.62</td></tr><tr><th scope="row">AUC</th><td>0.26</td><td class="best">0.37</td></tr></tbody></table>
+          </div>
+          <figure class="result-figure"><a href="./assets/learning-curves.png" aria-label="Open full-size multi-task multi-embodiment learning curves"><img src="./assets/learning-curves.png" width="2370" height="1777" loading="lazy" decoding="async" alt="Manuscript learning curves comparing M4PO and NEWT over 100 million aggregate environment steps. M4PO reaches 54.3% average and 45.1% worst-embodiment success; NEWT reaches 39.1% and 32.4%." /></a><figcaption>Supplied manuscript figure. Solid lines: average success. Dashed lines: worst-embodiment success. AUC integrates success over normalized aggregate environment steps.</figcaption></figure>
+        </div>
+
+        <div class="result-panel" id="panel-paradigm" role="tabpanel" aria-labelledby="tab-paradigm" tabindex="0">
+          <div class="result-summary"><div><h3>Multi-task learning within each paradigm</h3><p>Each policy covers multiple tasks within one manipulation paradigm.</p></div><div class="result-callout"><strong>61.2%</strong><span>M4PO average success</span></div></div>
+          <div class="table-scroll" role="region" aria-label="Within-paradigm results" tabindex="0">
+            <table><caption>Success rate (%) ↑ · manuscript Table IV</caption><thead><tr><th scope="col">Method</th><th scope="col">Dexterous</th><th scope="col">Fixed-base</th><th scope="col">Humanoid</th><th scope="col">Average</th></tr></thead><tbody><tr><th scope="row">TD-MPC2</th><td>25.4</td><td>32.5</td><td>25.0</td><td>27.6</td></tr><tr><th scope="row">M3PO</th><td>30.2</td><td>38.5</td><td>36.0</td><td>34.9</td></tr><tr><th scope="row">NEWT</th><td>50.2</td><td>56.0</td><td>59.0</td><td>55.1</td></tr><tr class="highlight-row"><th scope="row">M4PO</th><td>55.3</td><td>62.0</td><td>66.2</td><td>61.2</td></tr></tbody></table>
+          </div>
+          <div class="paired-figures"><figure class="result-figure"><a href="./assets/fixed-base.png"><img src="./assets/fixed-base.png" width="2370" height="1770" loading="lazy" decoding="async" alt="Supplied manuscript learning curves for multi-task fixed-base manipulation." /></a><figcaption>Fixed-base manipulation.</figcaption></figure><figure class="result-figure"><a href="./assets/humanoid.png"><img src="./assets/humanoid.png" width="2370" height="1770" loading="lazy" decoding="async" alt="Supplied manuscript learning curves for multi-task humanoid manipulation." /></a><figcaption>Humanoid manipulation.</figcaption></figure></div>
+        </div>
+
+        <div class="result-panel" id="panel-arena" role="tabpanel" aria-labelledby="tab-arena" tabindex="0">
+          <div class="result-summary"><div><h3>Expanded IsaacLab-Arena</h3><p>The expanded setting also measures average and worst-embodiment success.</p></div><div class="result-callout"><strong>+14.4 pp</strong><span>average success vs. NEWT</span></div></div>
+          <div class="table-scroll" role="region" aria-label="Expanded IsaacLab-Arena results" tabindex="0">
+            <table><caption>Success rate (%) ↑ · manuscript Table VI</caption><thead><tr><th scope="col">Method</th><th scope="col">Average</th><th scope="col">Worst embodiment</th></tr></thead><tbody><tr><th scope="row">NEWT</th><td>36.4</td><td>23.7</td></tr><tr class="highlight-row"><th scope="row">M4PO</th><td>50.8</td><td>37.2</td></tr></tbody></table>
+          </div>
+        </div>
+        <p class="figure-note source-note">Figures and tables from the <a href="./assets/m4po.pdf">M4PO manuscript</a>. <a href="https://github.com/Ozzey/M4PO/blob/main/docs/PAPER_RESULTS.md">Result &amp; media provenance <span aria-hidden="true">↗</span></a></p>
+      </section>
+
+      <section class="hardware section-space" aria-labelledby="hardware-title">
+        <div class="section-width hardware-layout">
+          <div class="section-heading"><p class="eyebrow">04 / Beyond simulation</p><h2 id="hardware-title">From a shared model<br />to physical robots.</h2><p class="hardware-number">85<span>/100</span></p><p class="hardware-number-label">Successful trials reported in the manuscript</p><p class="hardware-copy">Five conditions. Twenty trials each. Policy parameters stay fixed during hardware evaluation; G1-specific adaptation happens beforehand in simulation.</p></div>
+          <div><div class="table-scroll" role="region" aria-label="Hardware evaluation results" tabindex="0"><table><caption>Hardware evaluation · manuscript Table VIII</caption><thead><tr><th scope="col">Robot / condition</th><th scope="col">Successes</th></tr></thead><tbody><tr><th scope="row"><span class="robot-label">Unitree G1</span>Box lifting without images</th><td><strong>18</strong> / 20</td></tr><tr><th scope="row"><span class="robot-label">Franka</span>Fruit picking</th><td><strong>19</strong> / 20</td></tr><tr><th scope="row"><span class="robot-label">Franka</span>Fruit sorting</th><td><strong>15</strong> / 20</td></tr><tr><th scope="row"><span class="robot-label">Franka</span>Cube on cylinder</th><td><strong>17</strong> / 20</td></tr><tr><th scope="row"><span class="robot-label">Franka</span>Cylinder on cube</th><td><strong>16</strong> / 20</td></tr></tbody></table></div><p class="figure-note">Fruit sorting tests a task composition excluded from simulation training.</p></div>
+        </div>
+      </section>
+
+      <section class="paper-section section-width section-space" aria-labelledby="paper-heading">
+        <p class="eyebrow">Explore the project</p><h2 id="paper-heading">A closer look at M4PO.</h2><p>Read the method, inspect the implementation, and explore the supplementary material.</p>
+        <div class="resource-links"><a class="button button-dark" href="./assets/m4po.pdf">Read the paper <span aria-hidden="true">↗</span></a><a class="button button-light" href="https://github.com/Ozzey/M4PO">Explore the code <span aria-hidden="true">↗</span></a></div>
+      </section>
+    </main>
+
+    <footer class="site-footer section-width"><div><a class="footer-wordmark" href="#top">M4PO<span aria-hidden="true">.</span></a><p>Research on shared world models for manipulation.</p></div><div class="footer-meta"><a href="#top">Back to top <span aria-hidden="true">↑</span></a><p>Page design inspired by <a href="https://www.nicklashansen.com/NewtWM/">NEWT</a>.</p></div></footer>
+  </body>
+</html>

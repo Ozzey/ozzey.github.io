@@ -1,5 +1,5 @@
 import GlassCard from "@/components/ui/glass-card";
-import { BookOpen, ExternalLink, FileText } from "lucide-react";
+import { BookOpen, Code, ExternalLink, FileText } from "lucide-react";
 import { Card } from "@/components/ui/card";
 import { Spotlight } from "@/components/ui/spotlight";
 import { WavyBackground } from "@/components/ui/wavy-background";
@@ -30,6 +30,41 @@ const accentPairs = [
 
 const publications = (scholarData as ScholarData).publications;
 
+// Curated manuscripts stay separate from the generated Scholar data.
+const curatedPapers = [
+  {
+    title: "M4PO: Massively Multi-Task Multi-Embodiment Model-Based Policy Optimization",
+    authors: "",
+    conference: "Manuscript",
+    publicationDate: "2026",
+    abstract:
+      "M4PO studies how a single model-based policy can learn manipulation across tasks and robot embodiments. A hierarchical world model separates task progress from embodiment-specific dynamics, while stochastic latent planning and a shared masked action interface connect different robots to the same model.",
+    links: [
+      {
+        label: "Page",
+        href: "/papers/m4po/",
+        icon: ExternalLink,
+        delay: "400ms",
+      },
+      {
+        label: "PDF",
+        href: "/papers/m4po/assets/m4po.pdf",
+        icon: FileText,
+        delay: "600ms",
+      },
+      {
+        label: "Code",
+        href: "https://github.com/Ozzey/M4PO",
+        icon: Code,
+        delay: "800ms",
+      },
+    ],
+    featured: true,
+    accentFrom: "#38bdf8",
+    accentTo: "#6366f1",
+  },
+];
+
 const featuredPaperPages: Record<string, string> = {
   "Knowledge-Guided Manipulation Using Multi-Task Reinforcement Learning":
     "/papers/kg-m3po/",
@@ -43,6 +78,7 @@ function getBadgeText(venue: string) {
   if (upper.includes("IROS")) return "A";
   if (upper.includes("ARXIV")) return "PRE";
   if (upper.includes("WORKSHOP")) return "WS";
+  if (upper.includes("MANUSCRIPT")) return "MS";
   return "PUB";
 }
 
@@ -140,28 +176,33 @@ export function PublicationsPage() {
 
   const sortedPapers = useMemo(
     () =>
-      publications
-        .map((publication, index) => {
-          const accent = accentPairs[index % accentPairs.length];
-          const pageHref = featuredPaperPages[publication.title];
+      [
+        ...curatedPapers,
+        ...publications
+          .filter(
+            (publication) => !curatedPapers.some((paper) => paper.title === publication.title),
+          )
+          .map((publication, index) => {
+            const accent = accentPairs[index % accentPairs.length];
+            const pageHref = featuredPaperPages[publication.title];
 
-          return {
-            title: publication.title,
-            authors: publication.authors,
-            conference: publication.venue,
-            publicationDate: publication.year,
-            abstract: pageHref ? featuredAbstracts[publication.title] ?? "Loading abstract..." : "",
-            links: buildLinks(publication, pageHref),
-            featured: Boolean(pageHref),
-            accentFrom: accent[0],
-            accentTo: accent[1],
-          };
-        })
-        .sort((a, b) => {
-          const aYear = Number.parseInt(a.publicationDate, 10);
-          const bYear = Number.parseInt(b.publicationDate, 10);
-          return bYear - aYear || a.title.localeCompare(b.title);
-        }),
+            return {
+              title: publication.title,
+              authors: publication.authors,
+              conference: publication.venue,
+              publicationDate: publication.year,
+              abstract: pageHref ? featuredAbstracts[publication.title] ?? "Loading abstract..." : "",
+              links: buildLinks(publication, pageHref),
+              featured: Boolean(pageHref),
+              accentFrom: accent[0],
+              accentTo: accent[1],
+            };
+          }),
+      ].sort((a, b) => {
+        const aYear = Number.parseInt(a.publicationDate, 10);
+        const bYear = Number.parseInt(b.publicationDate, 10);
+        return bYear - aYear || a.title.localeCompare(b.title);
+      }),
     [featuredAbstracts],
   );
 
