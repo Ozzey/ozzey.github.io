@@ -1,0 +1,244 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#fafbf8" />
+    <meta name="description" content="Eddies: Dynamical Action Tokens with Certified Composition. Action tokens that carry a closed-loop model and a conformal envelope, chain into certified Eddie streams, gate their own commands and calibrate themselves in closed loop. Ten tasks, four robots, two physics engines and a real Franka." />
+    <meta property="og:title" content="Eddies · Action tokens that carry the dynamics of the robot." />
+    <meta property="og:description" content="Explore the method, the certificates, the simulation and real-robot demonstrations, and the paper results for Eddies (L4DC 2027)." />
+    <meta property="og:type" content="website" />
+    <title>Eddies · Dynamical Action Tokens with Certified Composition</title>
+    <link rel="icon" href="./favicon.svg" type="image/svg+xml" />
+    <link rel="stylesheet" href="./styles.css" />
+    <script src="./script.js" type="module"></script>
+  </head>
+  <body>
+    <a class="skip-link" href="#main">Skip to content</a>
+    <header class="site-header" id="top">
+      <a class="portfolio-link" href="https://ozzey.github.io/"><span aria-hidden="true">↖</span> Aditya Narendra <span class="portfolio-label">/ Research</span></a>
+      <nav aria-label="Project navigation">
+        <a href="#method">Method</a>
+        <a href="#results">Results</a>
+        <a href="#demos">Demos</a>
+        <details class="research-menu">
+          <summary>More research</summary>
+          <div class="research-dropdown">
+            <a href="https://ozzey.github.io/papers/m4po/">M4PO</a>
+            <a href="./" aria-current="page">Eddies</a>
+          </div>
+        </details>
+        <a class="nav-code" href="https://github.com/Ozzey/EDDIES">GitHub <span aria-hidden="true">↗</span></a>
+      </nav>
+    </header>
+
+    <main id="main">
+      <section class="hero section-width" aria-labelledby="project-title">
+        <p class="eyebrow"><span class="status-dot" aria-hidden="true"></span> Action tokens with certificates</p>
+        <h1 id="project-title">Eddies</h1>
+        <p class="paper-title">Dynamical Action Tokens<br class="desktop-break" /> with Certified Composition</p>
+        <p class="hero-summary">Action tokens that carry the dynamics of the robot that runs them.</p>
+        <p class="hero-authors"><span>Aditya Narendra</span>, <span>Grik Tadevosyan</span>, <span>Abdalla Swikir</span> · MBZUAI · L4DC 2027</p>
+        <div class="resource-links">
+          <a class="button button-dark" href="./paper.pdf"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M14 3H6a1 1 0 0 0-1 1v16a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V8zM14 3v5h5M9 13h6M9 17h6" /></svg>Paper PDF <span aria-hidden="true">↗</span></a>
+          <a class="button button-dark" href="./supplementary.pdf"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 4h11l3 3v13H5zM8 12h8M8 16h8M8 8h4" /></svg>Supplement <span aria-hidden="true">↗</span></a>
+          <a class="button button-dark" href="https://github.com/Ozzey/EDDIES"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m8 7-5 5 5 5m8-10 5 5-5 5m-3-14-2 18" /></svg>Code <span aria-hidden="true">↗</span></a>
+          <a class="button button-light" href="https://huggingface.co/datasets/Ozzey/eddies"><svg viewBox="0 0 24 24" aria-hidden="true"><ellipse cx="12" cy="6" rx="8" ry="3" /><path d="M4 6v12c0 1.7 3.6 3 8 3s8-1.3 8-3V6M4 12c0 1.7 3.6 3 8 3s8-1.3 8-3" /></svg>Dataset <span aria-hidden="true">↗</span></a>
+          <a class="button button-light" href="#demos"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m9 5 11 7-11 7z" /></svg>Watch demos</a>
+        </div>
+      </section>
+
+      <section class="demo-section section-width" id="stage" aria-labelledby="stage-title">
+        <div class="section-topline">
+          <h2 class="small-heading" id="stage-title">Certified Eddies, in motion</h2>
+          <span class="micro-label"><span class="status-dot" aria-hidden="true"></span> Simulation and real-robot demonstrations</span>
+        </div>
+        <div class="demo-stage">
+          <div class="demo-toolbar">
+            <div class="tab-list demo-tabs" data-tab-group="demos" role="tablist" aria-label="Demonstrations">
+              <button class="tab" id="tab-real" role="tab" aria-selected="true" aria-controls="panel-real" tabindex="0">Franka <span>· stacking (real)</span></button>
+              <button class="tab" id="tab-g1" role="tab" aria-selected="false" aria-controls="panel-g1" tabindex="-1">G1 <span>· drawer + caddy</span></button>
+              <button class="tab" id="tab-leap" role="tab" aria-selected="false" aria-controls="panel-leap" tabindex="-1">LEAP hand <span>· wheel</span></button>
+            </div>
+            <button class="playback-button" id="video-toggle" type="button" hidden>Play demo <span aria-hidden="true">▷</span></button>
+          </div>
+          <div class="demo-panel" id="panel-real" role="tabpanel" aria-labelledby="tab-real" tabindex="0">
+            <video controls muted loop playsinline preload="metadata" poster="assets/videos/previews/perturbation.jpg" aria-label="A real Franka stacks a cube while a stick pushes it; the arm holds in a certified stop until the cube is back">
+              <source src="assets/videos/real/perturbation.mp4" type="video/mp4" />
+              <a href="assets/videos/real/perturbation.mp4">Watch the real-robot stacking clip</a>.
+            </video>
+            <div class="demo-caption"><p><strong>Stacking under perturbation.</strong> The cube is pushed with a stick; the arm re-targets, holds in a certified stop while the cube is outside the safe set, then stacks it.</p><a href="assets/videos/real/perturbation.mp4">Full clip <span aria-hidden="true">↗</span></a></div>
+          </div>
+          <div class="demo-panel" id="panel-g1" role="tabpanel" aria-labelledby="tab-g1" tabindex="0" hidden>
+            <video controls muted loop playsinline preload="none" poster="assets/videos/previews/g1_drawer_sb.jpg" aria-label="Unitree G1 opens a drawer and transfers a caddy in MuJoCo">
+              <source src="assets/videos/sim/g1_drawer_sb.mp4" type="video/mp4" />
+              <a href="assets/videos/sim/g1_drawer_sb.mp4">Watch the G1 drawer clip</a>.
+            </video>
+            <div class="demo-caption"><p><strong>Humanoid manipulation.</strong> A Unitree G1 with Dex3 hands opens a drawer and transfers a caddy through an Eddie stream of 16 Eddies.</p><a href="assets/videos/sim/g1_drawer_sb.mp4">Full clip <span aria-hidden="true">↗</span></a></div>
+          </div>
+          <div class="demo-panel" id="panel-leap" role="tabpanel" aria-labelledby="tab-leap" tabindex="0" hidden>
+            <video controls muted loop playsinline preload="none" poster="assets/videos/previews/leap_wheel_sb.jpg" aria-label="UR5e with a LEAP hand turns a wheel in MuJoCo">
+              <source src="assets/videos/sim/leap_wheel_sb.mp4" type="video/mp4" />
+              <a href="assets/videos/sim/leap_wheel_sb.mp4">Watch the LEAP hand wheel clip</a>.
+            </video>
+            <div class="demo-caption"><p><strong>Dexterous manipulation.</strong> A UR5e with a LEAP hand turns a wheel through six Eddies, each gated by its own envelope.</p><a href="assets/videos/sim/leap_wheel_sb.mp4">Full clip <span aria-hidden="true">↗</span></a></div>
+          </div>
+        </div>
+        <p class="figure-note">Clips play muted at normal speed with the gate active; overlays name the running Eddie. More demonstrations <a href="#demos">below <span aria-hidden="true">↓</span></a>.</p>
+        <noscript><p class="figure-note">JavaScript is off. The other clips: <a href="assets/videos/sim/g1_drawer_sb.mp4">G1 drawer + caddy</a> · <a href="assets/videos/sim/leap_wheel_sb.mp4">LEAP hand wheel</a>.</p></noscript>
+      </section>
+
+      <section class="metrics section-width" aria-label="Paper highlights">
+        <div class="metric"><p class="metric-number">10<span>tasks</span></p><p class="metric-label">4 robots · 2 engines + a real Franka</p><p class="metric-detail">MuJoCo, Isaac Sim and a Franka Panda</p></div>
+        <div class="metric"><p class="metric-number">5<span>/ 2,000</span></p><p class="metric-label">Tubes violated on held-out episodes</p><p class="metric-detail">Calibration fixed, all ten tasks</p></div>
+        <div class="metric"><p class="metric-number">98<span>%</span></p><p class="metric-label">Runs finished at 5 cm by the self-calibrating gate</p><p class="metric-detail">1,955 of 2,000 test runs</p></div>
+        <p class="metrics-source">Reported in the paper · <a href="#results">Evaluation details below <span aria-hidden="true">↓</span></a></p>
+      </section>
+
+      <section class="abstract section-width section-space" aria-labelledby="abstract-title">
+        <div class="section-heading"><p class="eyebrow">01 / The idea</p><h2 id="abstract-title">A token that knows<br />how it will be tracked.</h2></div>
+        <div class="prose">
+          <p class="lead">A token is just a symbol. An Eddie is a symbol that also says how this robot will track it, and how sure we are of that.</p>
+          <p>Robot foundation models act through action tokens, but a token is just a symbol, it says nothing about how well the robot will track it. We introduce Eddies (Embedding-space Discrete Dynamical Instructions with Envelopes), action tokens that carry the dynamics of the robot. An Eddie is a primitive from the robot's skill vocabulary bound to a task frame, a closed-loop model identified from rollouts, and a conformal envelope on that model's error. Eddies chain through hand-overs into a whole-task tracking certificate, and each Eddie gates its own commands. Before every command it checks that the robot stays within its tolerance, and then it calibrates itself in closed loop with a guaranteed long-run miss rate.</p>
+          <p>We test Eddies on ten tasks and four robots in two physics engines and on a real Franka. The certificates hold on held-out episodes. Eddies certify more tightly than global models, per-primitive models and learned tokenizers of equal size. A skill's certificate can also change with the robot that runs it.</p>
+          <a class="text-link" href="./paper.pdf">Read the full paper <span aria-hidden="true">↗</span></a>
+        </div>
+      </section>
+
+      <section class="method section-space" id="method" aria-labelledby="method-title">
+        <div class="section-width">
+          <div class="section-heading centered"><p class="eyebrow">02 / The method</p><h2 id="method-title">One token: primitive, model, envelope.<br />One stream: a certificate.</h2><p class="section-description">Streamer chains certified Eddies into an Eddie stream; every Eddie checks its own commands and calibrates itself as it runs.</p></div>
+          <figure class="architecture-figure">
+            <div class="architecture-toolbar"><span class="micro-label">Eddies architecture</span><div><button class="text-button" id="architecture-toggle" type="button" hidden>Pause animation</button><a href="assets/architectures/eddies_architecture.svg">Open full size <span aria-hidden="true">↗</span></a></div></div>
+            <object class="architecture" id="architecture" data="assets/architectures/eddies_architecture.svg" type="image/svg+xml" aria-label="Animated Eddies architecture: an Eddie library of primitives with identified models and conformal envelopes; Streamer composes the Eddie stream from a specification; the tubes chain through hand-overs into a whole-task certificate; the gate checks every command; self-calibration updates the coverage level and the models."><a href="assets/architectures/eddies_architecture.svg"><img src="assets/architectures/eddies_architecture_static.svg" width="1390" height="610" alt="Eddies architecture: Eddie library, Streamer and the Eddie stream, chained certificate, gate, self-calibration." /></a></object>
+            <figcaption>Five stages build up in a 14 s loop: the Eddie library, the Eddie stream Streamer composes from an LTL<sub>f</sub> goal, the chained certificate through hand-overs, the gate before every command, and the self-calibrating update of the coverage level.</figcaption>
+          </figure>
+          <div class="method-grid">
+            <article><span class="step-number">01</span><h3>An Eddie is one token</h3><p>A primitive of the robot's skill vocabulary bound to a task frame, a closed-loop model identified from rollouts, and a conformal envelope on that model's error. The envelope is part of the Eddie.</p></article>
+            <article><span class="step-number">02</span><h3>The Eddie stream</h3><p>Streamer chains Eddies through hand-overs. Inside an Eddie the error follows its tube; at a hand-over it jumps by the gap between the two equilibria. Chained, the tubes bound the tracking error over the whole stream.</p></article>
+            <article><span class="step-number">03</span><h3>The gate</h3><p>Before every command the running Eddie predicts the next error with its own model and envelope. If the prediction stays within tolerance the command is sent; otherwise the robot holds in a certified stop.</p></article>
+            <article><span class="step-number">04</span><h3>Self-calibration</h3><p>After each episode an adaptive conformal update moves the shared coverage level toward the target miss rate; at hand-overs the Eddie refits its model. Updated models and envelopes flow back into the library.</p></article>
+          </div>
+          <div class="theorem-box" aria-label="Theorem 1 in plain words">
+            <div class="theorem-lead"><span class="context-label">Theorem 1 · Certified Eddie streams, in plain words</span>Assume every model is stable and commands respect the trust radius and slew bound. Write <em>b<sub>k</sub></em> for the tracking error, <em>a<sub>i</sub></em> for the one-step gain of Eddie <em>i</em>, and <em>J<sub>ii'</sub></em> for the jump between equilibria when Eddie <em>i</em> hands over to Eddie <em>i'</em>.</div>
+            <div><h3>(a) Chained certificate</h3>If episodes are exchangeable, then with probability at least 1 − α the error stays in its tube inside every Eddie and, across every hand-over, <em>b<sub>k+1</sub> ≤ a<sub>i</sub> b<sub>k</sub> + ε<sub>i</sub> + J<sub>ii'</sub></em>. Chained from the first measured error, this bounds the whole Eddie stream and is finite for every finite stream. No contraction across hand-overs is needed; 81 of the 85 certified Eddies have <em>a<sub>i</sub></em> &lt; 1.</div>
+            <div><h3>(b) Gate</h3>For any stable models, with no exchangeability assumption: whenever the running Eddie's residual stays within its envelope, the command its gate sends keeps the next error within the tolerance <em>μ</em>, and every run that finishes stays within <em>μ</em>. A command that fails the check is not sent.</div>
+            <div><h3>(c) Miss rate</h3>With the adaptive update of the coverage level, the long-run share of episodes that miss the envelope differs from <em>α</em> by at most (<em>s</em><sub>max</sub> + γ)/(γ<em>T</em>) after <em>T</em> episodes, for any sequence of episodes and tasks. Parts (b) and (c) still hold once the gate refits its models.</div>
+          </div>
+        </div>
+      </section>
+
+      <section class="results section-width section-space" id="results" aria-labelledby="results-title">
+        <div class="section-heading centered"><p class="eyebrow">03 / The evidence</p><h2 id="results-title">Tighter certificates.<br />Fewer stops.</h2><p class="section-description">Paper-reported results on ten MuJoCo tasks with four robots, in Isaac Sim, and on a real Franka.</p></div>
+        <div class="protocol-context"><span class="context-label">Evaluation protocol</span><p>200 training, 200 calibration and 200 test episodes per task, α = 0.1. A certificate is violated if the measured hand position leaves its tube. Gates are replayed on the logged test episodes, so the outcome of every stopped run without the gate is known.</p></div>
+        <div class="tab-list result-tabs" data-tab-group="results" role="tablist" aria-label="Result setting">
+          <button class="tab" id="tab-tokens" role="tab" aria-selected="true" aria-controls="panel-tokens" tabindex="0">Certified tokens</button>
+          <button class="tab" id="tab-gate" role="tab" aria-selected="false" aria-controls="panel-gate" tabindex="-1">The gate</button>
+          <button class="tab" id="tab-transfer" role="tab" aria-selected="false" aria-controls="panel-transfer" tabindex="-1">Across robots &amp; engines</button>
+        </div>
+
+        <div class="result-panel" id="panel-tokens" role="tabpanel" aria-labelledby="tab-tokens" tabindex="0">
+          <div class="result-summary"><div><h3>Each Eddie's own model matters most</h3><p>With the robot's reference model for every Eddie the tube is 1.5–7.6 times wider; a per-step envelope with a union bound certifies no plan at these tolerances.</p></div><div class="result-callout"><strong>4.3 cm</strong><span>Franka tube p90 with Eddies</span></div></div>
+          <div class="table-scroll" role="region" aria-label="Certificates per robot, Eddies and their ablations" tabindex="0">
+            <table><caption>Tube p90 [cm] and runs finished of 400 test runs, calibration fixed · paper Table 1, Eddies rows</caption><thead><tr class="group-head"><th scope="col"></th><th scope="colgroup" colspan="2">Franka</th><th scope="colgroup" colspan="2">LEAP hand</th><th scope="colgroup" colspan="2">Aero hand</th><th scope="colgroup" colspan="2">G1</th></tr><tr><th scope="col">Tokens</th><th scope="col">tube</th><th scope="col">finished <span>5 / 7.5 cm</span></th><th scope="col">tube</th><th scope="col">finished <span>5 / 7.5 cm</span></th><th scope="col">tube</th><th scope="col">finished <span>5 / 7.5 cm</span></th><th scope="col">tube</th><th scope="col">finished <span>7.5 / 10 cm</span></th></tr></thead><tbody><tr class="highlight-row"><th scope="row">Eddies</th><td>4.3</td><td>275 / 359</td><td>11.9</td><td>174 / 174</td><td>6.5</td><td>164 / 340</td><td>7.9</td><td>172 / 362</td></tr><tr><th scope="row">Eddies, one reference model</th><td>18.4</td><td>0 / 0</td><td>17.6</td><td>0 / 0</td><td>10.5</td><td>0 / 0</td><td>60.1</td><td><strong>172</strong> / 172</td></tr><tr><th scope="row">Eddies, per-step bound</th><td>–</td><td>0 / 0</td><td>–</td><td>0 / 0</td><td>8.7</td><td>0 / 0</td><td>–</td><td>0 / 0</td></tr></tbody></table>
+          </div>
+          <p class="figure-note result-table-note">Runs finished at μ = 5 / 7.5 cm; the G1 uses 7.5 / 10 cm, since its balance control widens the tubes and no plan fits within 5 cm with any tokens. The two ablation rows replace each Eddie's model with the robot's reference model, and the episode-level envelope with a per-step bound. The paper also compares against learned tokenizers; those baselines are not part of this repository.</p>
+          <figure class="result-figure"><a href="assets/results/paper/res_cert.svg" aria-label="Open the full-size certificate figure"><img src="assets/results/paper/res_cert.svg" width="1177" height="367" decoding="async" alt="Coverage of the envelope on staged insertion, and the chained bound against the measured error on one episode." /></a><figcaption><strong>The certificate holds.</strong> (a) On staged insertion the coverage level keeps 95% of the first 100 test episodes in the envelope (94% of all 200; target 90%). (b) On one episode the chained bound stays above the measured error, jumping at hand-overs.</figcaption></figure>
+        </div>
+
+        <div class="result-panel" id="panel-gate" role="tabpanel" aria-labelledby="tab-gate" tabindex="0">
+          <div class="result-summary"><div><h3>Checking one command at a time</h3><p>At 5 cm with the calibration fixed, checking every planned Eddie's tube before motion finishes 890 of 2,000 runs; checking only the next command 1,968; the self-calibrating gate 1,955 from the same calibration, and nearly every run on tasks that start with no calibration.</p></div><div class="result-callout"><strong>1,955 / 2,000</strong><span>runs finished at 5 cm, self-calibrating gate</span></div></div>
+          <div class="paired-figures"><figure class="result-figure"><a href="assets/results/paper/res_gate.svg"><img src="assets/results/paper/res_gate.svg" width="1117" height="367" decoding="async" alt="Finished runs against tolerance for the fixed-calibration and the self-calibrating gate, one curve per robot." /></a><figcaption><strong>Two gates, same calibration.</strong> Finished runs against tolerance, each curve averaging one robot's tasks over 200 test episodes per task. No finished run leaves μ.</figcaption></figure><figure class="result-figure"><a href="assets/results/paper/res_heldout.svg"><img src="assets/results/paper/res_heldout.svg" width="1135" height="367" decoding="async" alt="Four Franka tasks held out of training and started with no calibration: finished runs, and the share of episodes outside the envelope." /></a><figcaption><strong>Held-out tasks, no calibration.</strong> Four Franka tasks held out of training. Left: finished runs. Right: the share of episodes so far outside the envelope; the self-calibrating gate settles near α = 0.1.</figcaption></figure></div>
+          <p class="figure-note result-note">At 2 cm, 1,627 runs would leave μ and the look-ahead stops 97% of them before they do. With every Eddie 1.5–4 times faster, the fixed-calibration gate refuses every plan before motion.</p>
+        </div>
+
+        <div class="result-panel" id="panel-transfer" role="tabpanel" aria-labelledby="tab-transfer" tabindex="0">
+          <div class="result-summary"><div><h3>A skill's certificate changes with the robot that runs it</h3><p>Certificates are moved between the LEAP and Aero hands on the same UR5e arm, and from MuJoCo to Isaac Sim. Borrowed certificates are violated or too wide to finish most runs; re-identified ones are violated at most once and finish over 80% of runs.</p></div><div class="result-callout"><strong>≤ 1</strong><span>violation in 200 episodes once re-identified</span></div></div>
+          <div class="table-scroll" role="region" aria-label="Certificates moved across robots and engines" tabindex="0">
+            <table><caption>Violations and runs finished at μ = 15 cm · paper Table 2</caption><thead><tr class="group-head"><th scope="col"></th><th scope="col"></th><th scope="col"></th><th scope="colgroup" colspan="2">borrowed</th><th scope="colgroup" colspan="2">re-identified</th></tr><tr><th scope="col">Source → target</th><th scope="col">Task</th><th scope="col">episodes</th><th scope="col">viol.</th><th scope="col">finished</th><th scope="col">viol.</th><th scope="col">finished</th></tr></thead><tbody><tr><th scope="row">LEAP → Aero</th><td style="text-align:left">Wheel</td><td>200</td><td>20</td><td>78</td><td class="best">0</td><td class="best">176</td></tr><tr><th scope="row"></th><td style="text-align:left">Peg tightening</td><td>200</td><td>5</td><td>0</td><td class="best">0</td><td class="best">164</td></tr><tr><th scope="row">Aero → LEAP</th><td style="text-align:left">Wheel</td><td>200</td><td class="best">0</td><td>22</td><td>1</td><td class="best">180</td></tr><tr><th scope="row"></th><td style="text-align:left">Peg tightening</td><td>200</td><td class="best">0</td><td>0</td><td class="best">0</td><td class="best">174</td></tr><tr><th scope="row">MuJoCo → Isaac Sim</th><td style="text-align:left">Staged insertion</td><td>50</td><td>10</td><td>22</td><td class="best">0</td><td class="best">45</td></tr><tr><th scope="row"></th><td style="text-align:left">Peg insertion</td><td>50</td><td>5</td><td>19</td><td class="best">0</td><td class="best">46</td></tr></tbody></table>
+          </div>
+          <p class="figure-note result-table-note">A certificate borrowed unchanged from the source, or re-identified on the target (for Isaac Sim: refit on the MuJoCo data plus 10 Isaac Sim episodes per task, calibrated on 50 more). Highlighted: the fewer violations and the more finished runs per task. Pulling a drawer open has a 3.0 cm tube on the Franka and 8.3 cm on the G1, while reaching for a peg stays at 2.9–4.9 cm on all four robots.</p>
+        </div>
+        <p class="figure-note source-note">Figures and tables from the <a href="./paper.pdf">Eddies paper</a>. <a href="./supplementary.pdf">Supplementary material <span aria-hidden="true">↗</span></a></p>
+      </section>
+
+      <section class="hardware section-space" aria-labelledby="hardware-title">
+        <div class="section-width hardware-layout">
+          <div class="section-heading"><p class="eyebrow">04 / Beyond simulation</p><h2 id="hardware-title">The same certificate<br />on a real Franka.</h2><p class="hardware-number">50<span>/50</span></p><p class="hardware-number-label">Real runs that stack the cube, with no tube violation, under either certificate</p><p class="hardware-copy">Cube stacking with eight Eddies. 50 Hz Eddie commands are tracked by a 1 kHz compliant controller, both gates run online, and the MuJoCo certificate is carried over unchanged or re-identified on the robot.</p></div>
+          <div><div class="table-scroll" role="region" aria-label="Cube stacking in MuJoCo, Isaac Sim and on the real Franka" tabindex="0"><table><caption>Cube stacking at μ = 5 cm · paper Table 3</caption><thead><tr class="group-head"><th scope="col"></th><th scope="col"></th><th scope="col"></th><th scope="col"></th><th scope="col"></th><th scope="colgroup" colspan="2">fixed-calibration gate</th><th scope="colgroup" colspan="2">self-calibrating gate</th></tr><tr><th scope="col">System <span>certificate</span></th><th scope="col">runs</th><th scope="col">success</th><th scope="col">viol.</th><th scope="col">tube p90 <span>[cm]</span></th><th scope="col">fin. / stop.</th><th scope="col">caught</th><th scope="col">fin. / stop.</th><th scope="col">caught</th></tr></thead><tbody><tr><th scope="row"><span class="robot-label">MuJoCo</span>MuJoCo</th><td>100</td><td>99</td><td>0</td><td>4.3</td><td>89 / 11</td><td>298 / 298</td><td>96 / 4</td><td>287 / 298</td></tr><tr><th scope="row"><span class="robot-label">Isaac Sim</span>MuJoCo</th><td>50</td><td>50</td><td>0</td><td>4.3</td><td>31 / 19</td><td>150 / 150</td><td>48 / 2</td><td>148 / 150</td></tr><tr><th scope="row"><span class="robot-label">Isaac Sim</span>re-identified</th><td>50</td><td>50</td><td>0</td><td>4.0</td><td>41 / 9</td><td>150 / 150</td><td>48 / 2</td><td>147 / 150</td></tr><tr class="highlight-row"><th scope="row"><span class="robot-label">Real Franka</span>MuJoCo</th><td>50</td><td><strong>50</strong></td><td>0</td><td>4.3</td><td>30 / 20</td><td>150 / 150</td><td>46 / 4</td><td>145 / 150</td></tr><tr class="highlight-row"><th scope="row"><span class="robot-label">Real Franka</span>re-identified</th><td>50</td><td><strong>50</strong></td><td>0</td><td>4.1</td><td>43 / 7</td><td>150 / 150</td><td>45 / 5</td><td>143 / 150</td></tr></tbody></table></div><p class="figure-note">Both gates see the same runs from the certificate shown, replayed on the logs in simulation and online on the robot. Viol.: runs that leave a tube; fin. / stop.: runs without and with a certified stop; caught: runs at 2–4× speed refused or stopped before leaving μ, of those that would.</p></div>
+        </div>
+        <div class="section-width hardware-figure">
+          <div class="section-topline"><h3 class="small-heading">A run under perturbation</h3><span class="micro-label"><span class="status-dot" aria-hidden="true"></span> Certified stop on the robot</span></div>
+          <div class="stop-strip">
+            <figure><img decoding="async" src="assets/results/real_stop/d_pushed.jpg" width="284" height="179" alt="Reach: a stick pushes the grey cube" /><figcaption><strong>(d) reach: cube pushed</strong>A stick moves the grey cube while the reach Eddie runs.</figcaption></figure>
+            <figure><img decoding="async" src="assets/results/real_stop/e_retargets.jpg" width="284" height="179" alt="Reach: the Eddie re-targets" /><figcaption><strong>(e) reach: re-targets</strong>The Eddie's frame follows the detected cube; the arm follows.</figcaption></figure>
+            <figure class="is-stop"><img decoding="async" src="assets/results/real_stop/f_certified_stop.jpg" width="284" height="179" alt="Certified stop: the arm holds" /><figcaption><strong>(f) certified stop</strong>The cube leaves the set the reach Eddie is certified for. The next command fails the gate's check and is not sent; the arm holds for 15 s.</figcaption></figure>
+            <figure><img decoding="async" src="assets/results/real_stop/g_resumes.jpg" width="284" height="179" alt="Reach resumes" /><figcaption><strong>(g) reach: resumes</strong>The cube is back; the check passes and the stream continues.</figcaption></figure>
+            <figure><img decoding="async" src="assets/results/real_stop/h_grasp.jpg" width="284" height="179" alt="Grasp" /><figcaption><strong>(h) grasp</strong>Hand-over into the grasp Eddie, jump included in the bound.</figcaption></figure>
+            <figure><img decoding="async" src="assets/results/real_stop/i_stacked.jpg" width="284" height="179" alt="Place: stacked" /><figcaption><strong>(i) place: stacked</strong>The run ends with the grey cube on the black one.</figcaption></figure>
+          </div>
+          <p class="figure-note">Frames (d)–(i) of the paper's Fig. 8. The stop is a refused command, certified by the Eddie's own model and envelope; the stream resumes the moment the check passes again. <a href="assets/results/real_setup.png">Full figure with the setup panels <span aria-hidden="true">↗</span></a></p>
+        </div>
+      </section>
+
+      <section class="demo-section section-width section-space" id="demos" aria-labelledby="demo-title">
+        <div class="section-topline">
+          <h2 class="small-heading" id="demo-title">Ten tasks, four robots, one real Franka</h2>
+          <span class="micro-label"><span class="status-dot" aria-hidden="true"></span> Simulation and real-robot demonstrations</span>
+        </div>
+        <div class="demo-group">
+          <div class="demo-group-head"><h3>Simulation (MuJoCo)</h3><p>Test episodes driven by Streamer through the task's Eddie stream, with the gate's decisions overlaid</p></div>
+          <div class="demo-grid">
+            <article class="demo-card"><div class="demo-media"><video muted loop playsinline preload="none" poster="assets/videos/previews/franka_peg_insertion.jpg" aria-label="Franka peg insertion in MuJoCo"><source src="assets/videos/sim/franka_peg_insertion.mp4" type="video/mp4" /><a href="assets/videos/sim/franka_peg_insertion.mp4">Watch the Franka peg insertion clip</a>.</video><button class="play-overlay" type="button" hidden aria-label="Play Franka peg insertion"><span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m7 4 13 8-13 8z" /></svg></span></button></div><div class="demo-caption"><p><strong>Franka · peg insertion</strong>An Eddie stream of 8 Eddies.</p><a href="assets/videos/sim/franka_peg_insertion.mp4">Full clip <span aria-hidden="true">↗</span></a></div></article>
+            <article class="demo-card"><div class="demo-media"><video muted loop playsinline preload="none" poster="assets/videos/previews/franka_fmb.jpg" aria-label="Franka staged insertion in MuJoCo"><source src="assets/videos/sim/franka_fmb.mp4" type="video/mp4" /><a href="assets/videos/sim/franka_fmb.mp4">Watch the Franka staged insertion clip</a>.</video><button class="play-overlay" type="button" hidden aria-label="Play Franka staged insertion"><span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m7 4 13 8-13 8z" /></svg></span></button></div><div class="demo-caption"><p><strong>Franka · staged insertion</strong>The longest stream, 16 Eddies: pick, stage, regrasp, insert at 1–2 mm clearance, push home.</p><a href="assets/videos/sim/franka_fmb.mp4">Full clip <span aria-hidden="true">↗</span></a></div></article>
+            <article class="demo-card"><div class="demo-media"><video muted loop playsinline preload="none" poster="assets/videos/previews/franka_cube_stack.jpg" aria-label="Franka cube stacking in MuJoCo"><source src="assets/videos/sim/franka_cube_stack.mp4" type="video/mp4" /><a href="assets/videos/sim/franka_cube_stack.mp4">Watch the Franka cube stacking clip</a>.</video><button class="play-overlay" type="button" hidden aria-label="Play Franka cube stacking"><span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m7 4 13 8-13 8z" /></svg></span></button></div><div class="demo-caption"><p><strong>Franka · cube stacking</strong>8 Eddies; the same stream runs in Isaac Sim and on the real robot.</p><a href="assets/videos/sim/franka_cube_stack.mp4">Full clip <span aria-hidden="true">↗</span></a></div></article>
+            <article class="demo-card"><div class="demo-media"><video muted loop playsinline preload="none" poster="assets/videos/previews/franka_drawer.jpg" aria-label="Franka drawer opening with a box transfer in MuJoCo"><source src="assets/videos/sim/franka_drawer.mp4" type="video/mp4" /><a href="assets/videos/sim/franka_drawer.mp4">Watch the Franka drawer clip</a>.</video><button class="play-overlay" type="button" hidden aria-label="Play Franka drawer and box"><span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m7 4 13 8-13 8z" /></svg></span></button></div><div class="demo-caption"><p><strong>Franka · drawer + box</strong>Drawer opening with a box transfer, 14 Eddies.</p><a href="assets/videos/sim/franka_drawer.mp4">Full clip <span aria-hidden="true">↗</span></a></div></article>
+            <article class="demo-card"><div class="demo-media"><video muted loop playsinline preload="none" poster="assets/videos/previews/g1_peg_insertion_sb.jpg" aria-label="Unitree G1 peg insertion in MuJoCo"><source src="assets/videos/sim/g1_peg_insertion_sb.mp4" type="video/mp4" /><a href="assets/videos/sim/g1_peg_insertion_sb.mp4">Watch the G1 peg insertion clip</a>.</video><button class="play-overlay" type="button" hidden aria-label="Play G1 peg insertion"><span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m7 4 13 8-13 8z" /></svg></span></button></div><div class="demo-caption"><p><strong>G1 · peg insertion</strong>Unitree G1 with Dex3 hands, 8 Eddies; balance control widens the tubes.</p><a href="assets/videos/sim/g1_peg_insertion_sb.mp4">Full clip <span aria-hidden="true">↗</span></a></div></article>
+            <article class="demo-card"><div class="demo-media"><video muted loop playsinline preload="none" poster="assets/videos/previews/g1_drawer_sb.jpg" aria-label="Unitree G1 drawer opening with a caddy transfer in MuJoCo"><source src="assets/videos/sim/g1_drawer_sb.mp4" type="video/mp4" /><a href="assets/videos/sim/g1_drawer_sb.mp4">Watch the G1 drawer clip</a>.</video><button class="play-overlay" type="button" hidden aria-label="Play G1 drawer and caddy"><span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m7 4 13 8-13 8z" /></svg></span></button></div><div class="demo-caption"><p><strong>G1 · drawer + caddy</strong>Drawer opening with a caddy transfer, 16 Eddies.</p><a href="assets/videos/sim/g1_drawer_sb.mp4">Full clip <span aria-hidden="true">↗</span></a></div></article>
+            <article class="demo-card"><div class="demo-media"><video muted loop playsinline preload="none" poster="assets/videos/previews/leap_wheel_sb.jpg" aria-label="UR5e with a LEAP hand turning a wheel in MuJoCo"><source src="assets/videos/sim/leap_wheel_sb.mp4" type="video/mp4" /><a href="assets/videos/sim/leap_wheel_sb.mp4">Watch the LEAP hand wheel clip</a>.</video><button class="play-overlay" type="button" hidden aria-label="Play LEAP hand wheel"><span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m7 4 13 8-13 8z" /></svg></span></button></div><div class="demo-caption"><p><strong>LEAP hand · wheel</strong>UR5e with a LEAP hand, 6 Eddies.</p><a href="assets/videos/sim/leap_wheel_sb.mp4">Full clip <span aria-hidden="true">↗</span></a></div></article>
+            <article class="demo-card"><div class="demo-media"><video muted loop playsinline preload="none" poster="assets/videos/previews/leap_peg_tighten_sb.jpg" aria-label="UR5e with a LEAP hand tightening a peg in MuJoCo"><source src="assets/videos/sim/leap_peg_tighten_sb.mp4" type="video/mp4" /><a href="assets/videos/sim/leap_peg_tighten_sb.mp4">Watch the LEAP hand peg tightening clip</a>.</video><button class="play-overlay" type="button" hidden aria-label="Play LEAP hand peg tightening"><span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m7 4 13 8-13 8z" /></svg></span></button></div><div class="demo-caption"><p><strong>LEAP hand · peg tightening</strong>7 Eddies; its certificate differs from the Aero hand's for the same primitives.</p><a href="assets/videos/sim/leap_peg_tighten_sb.mp4">Full clip <span aria-hidden="true">↗</span></a></div></article>
+            <article class="demo-card"><div class="demo-media"><video muted loop playsinline preload="none" poster="assets/videos/previews/aero_wheel_sb.jpg" aria-label="UR5e with an Aero hand turning a wheel in MuJoCo"><source src="assets/videos/sim/aero_wheel_sb.mp4" type="video/mp4" /><a href="assets/videos/sim/aero_wheel_sb.mp4">Watch the Aero hand wheel clip</a>.</video><button class="play-overlay" type="button" hidden aria-label="Play Aero hand wheel"><span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m7 4 13 8-13 8z" /></svg></span></button></div><div class="demo-caption"><p><strong>Aero hand · wheel</strong>UR5e with an Aero hand, 6 Eddies.</p><a href="assets/videos/sim/aero_wheel_sb.mp4">Full clip <span aria-hidden="true">↗</span></a></div></article>
+            <article class="demo-card"><div class="demo-media"><video muted loop playsinline preload="none" poster="assets/videos/previews/aero_peg_tighten_sb.jpg" aria-label="UR5e with an Aero hand tightening a peg in MuJoCo"><source src="assets/videos/sim/aero_peg_tighten_sb.mp4" type="video/mp4" /><a href="assets/videos/sim/aero_peg_tighten_sb.mp4">Watch the Aero hand peg tightening clip</a>.</video><button class="play-overlay" type="button" hidden aria-label="Play Aero hand peg tightening"><span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m7 4 13 8-13 8z" /></svg></span></button></div><div class="demo-caption"><p><strong>Aero hand · peg tightening</strong>7 Eddies with the Aero's own certificate; Table 2 re-identifies the LEAP hand's on it.</p><a href="assets/videos/sim/aero_peg_tighten_sb.mp4">Full clip <span aria-hidden="true">↗</span></a></div></article>
+          </div>
+          <div class="isaac-strip" aria-label="The same ten tasks in Isaac Sim">
+            <a href="assets/videos/previews/isaac/franka_peg_insertion.jpg"><img decoding="async" src="assets/videos/previews/isaac/franka_peg_insertion.jpg" width="960" height="720" alt="Franka peg insertion in Isaac Sim" /></a>
+            <a href="assets/videos/previews/isaac/franka_fmb.jpg"><img decoding="async" src="assets/videos/previews/isaac/franka_fmb.jpg" width="960" height="720" alt="Franka staged insertion in Isaac Sim" /></a>
+            <a href="assets/videos/previews/isaac/franka_cube_stack.jpg"><img decoding="async" src="assets/videos/previews/isaac/franka_cube_stack.jpg" width="960" height="720" alt="Franka cube stacking in Isaac Sim" /></a>
+            <a href="assets/videos/previews/isaac/franka_drawer.jpg"><img decoding="async" src="assets/videos/previews/isaac/franka_drawer.jpg" width="960" height="720" alt="Franka drawer and box in Isaac Sim" /></a>
+            <a href="assets/videos/previews/isaac/g1_peg_insertion_sb.jpg"><img decoding="async" src="assets/videos/previews/isaac/g1_peg_insertion_sb.jpg" width="960" height="720" alt="G1 peg insertion in Isaac Sim" /></a>
+            <a href="assets/videos/previews/isaac/g1_drawer_sb.jpg"><img decoding="async" src="assets/videos/previews/isaac/g1_drawer_sb.jpg" width="960" height="720" alt="G1 drawer and caddy in Isaac Sim" /></a>
+            <a href="assets/videos/previews/isaac/leap_wheel_sb.jpg"><img decoding="async" src="assets/videos/previews/isaac/leap_wheel_sb.jpg" width="960" height="720" alt="LEAP hand wheel in Isaac Sim" /></a>
+            <a href="assets/videos/previews/isaac/leap_peg_tighten_sb.jpg"><img decoding="async" src="assets/videos/previews/isaac/leap_peg_tighten_sb.jpg" width="960" height="720" alt="LEAP hand peg tightening in Isaac Sim" /></a>
+            <a href="assets/videos/previews/isaac/aero_wheel_sb.jpg"><img decoding="async" src="assets/videos/previews/isaac/aero_wheel_sb.jpg" width="960" height="720" alt="Aero hand wheel in Isaac Sim" /></a>
+            <a href="assets/videos/previews/isaac/aero_peg_tighten_sb.jpg"><img decoding="async" src="assets/videos/previews/isaac/aero_peg_tighten_sb.jpg" width="960" height="720" alt="Aero hand peg tightening in Isaac Sim" /></a>
+          </div>
+          <p class="figure-note left">The same ten tasks in Isaac Sim (PhysX), from the same task, method and controller code; stills from the test episodes.</p>
+        </div>
+        <div class="demo-group">
+          <div class="demo-group-head"><h3>Real Franka Panda</h3><p>50 Hz Eddie commands tracked by a 1 kHz compliant controller; both gates online</p></div>
+          <div class="demo-grid">
+            <article class="demo-card"><div class="demo-media"><video muted loop playsinline preload="none" poster="assets/videos/previews/stacking.jpg" aria-label="Real Franka stacking a cube"><source src="assets/videos/real/stacking.mp4" type="video/mp4" /><a href="assets/videos/real/stacking.mp4">Watch the real cube stacking clip</a>.</video><button class="play-overlay" type="button" hidden aria-label="Play real cube stacking"><span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m7 4 13 8-13 8z" /></svg></span></button></div><div class="demo-caption"><p><strong>Cube stacking, nominal</strong>Eight Eddies: reach:cube_above, reach:cube_grasp, grasp, lift, transport, place, release, retreat. 50 of 50 runs stack the cube.</p><a href="assets/videos/real/stacking.mp4">Full clip <span aria-hidden="true">↗</span></a></div></article>
+            <article class="demo-card"><div class="demo-media"><video muted loop playsinline preload="none" poster="assets/videos/previews/perturbation.jpg" aria-label="Real Franka under perturbation with a certified stop"><source src="assets/videos/real/perturbation.mp4" type="video/mp4" /><a href="assets/videos/real/perturbation.mp4">Watch the perturbation clip</a>.</video><button class="play-overlay" type="button" hidden aria-label="Play perturbation and certified stop"><span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m7 4 13 8-13 8z" /></svg></span></button></div><div class="demo-caption"><p><strong>Perturbation and certified stop</strong>The cube is pushed out of the safe set; the reach Eddie refuses its next command and the arm holds until the cube is back.</p><a href="assets/videos/real/perturbation.mp4">Full clip <span aria-hidden="true">↗</span></a></div></article>
+            <article class="demo-card"><div class="demo-media"><video muted loop playsinline preload="none" poster="assets/videos/previews/rgb_feed.jpg" aria-label="Robot camera RGB feed with cube detections"><source src="assets/videos/real/rgb_feed.mp4" type="video/mp4" /><a href="assets/videos/real/rgb_feed.mp4">Watch the robot camera clip</a>.</video><button class="play-overlay" type="button" hidden aria-label="Play the robot camera feed"><span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m7 4 13 8-13 8z" /></svg></span></button></div><div class="demo-caption"><p><strong>Robot camera, RGB feed</strong>Detected cube boxes and the target of the active Eddie, as the gate sees them.</p><a href="assets/videos/real/rgb_feed.mp4">Full clip <span aria-hidden="true">↗</span></a></div></article>
+            <article class="demo-card"><div class="demo-media"><video muted loop playsinline preload="none" poster="assets/videos/previews/two_targets.jpg" aria-label="Real Franka: the cube is moved to a second target before the run"><source src="assets/videos/real/two_targets.mp4" type="video/mp4" /><a href="assets/videos/real/two_targets.mp4">Watch the second-target clip</a>.</video><button class="play-overlay" type="button" hidden aria-label="Play the second-target clip"><span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m7 4 13 8-13 8z" /></svg></span></button></div><div class="demo-caption"><p><strong>Cube moved to a second target</strong>A stick moves the cube before the run: no reach command is issued while it moves, then the whole stream runs and stacks it.</p><a href="assets/videos/real/two_targets.mp4">Full clip <span aria-hidden="true">↗</span></a></div></article>
+          </div>
+        </div>
+        <div class="demo-group">
+          <div class="demo-group-head"><h3>Supplementary video</h3><p>How an Eddie is built, how Streamer chains them, the gate on all ten tasks, transfer across robots and engines, and the real-robot runs</p></div>
+          <div class="demo-grid">
+            <article class="demo-card wide"><div class="demo-media"><video playsinline preload="none" poster="assets/videos/previews/supplementary.jpg" aria-label="Supplementary video for Eddies"><source src="assets/videos/supplementary.mp4" type="video/mp4" /><a href="assets/videos/supplementary.mp4">Watch the supplementary video</a>.</video><button class="play-overlay" type="button" hidden aria-label="Play the supplementary video"><span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m7 4 13 8-13 8z" /></svg></span></button></div><div class="demo-caption"><p><strong>Supplementary video</strong>The method and all experiments in one clip, silent.</p><a href="assets/videos/supplementary.mp4">Full clip <span aria-hidden="true">↗</span></a></div></article>
+          </div>
+        </div>
+        <p class="figure-note">Overlays name the running Eddie and show the gate's check. Simulation clips are test episodes at normal speed.</p>
+        <noscript><p class="figure-note">JavaScript is off. The clips above play with their native controls, and all result tables remain visible.</p></noscript>
+      </section>
+
+      <section class="paper-section section-width section-space" aria-labelledby="paper-heading">
+        <p class="eyebrow">Explore the project</p><h2 id="paper-heading">A closer look at Eddies.</h2><p>Read the method, inspect the implementation, and download the episodes behind every certificate.</p>
+        <div class="resource-links"><a class="button button-dark" href="./paper.pdf">Read the paper <span aria-hidden="true">↗</span></a><a class="button button-light" href="https://github.com/Ozzey/EDDIES">Explore the code <span aria-hidden="true">↗</span></a><a class="button button-light" href="https://huggingface.co/datasets/Ozzey/eddies">Get the dataset <span aria-hidden="true">↗</span></a></div>
+      </section>
+    </main>
+
+    <footer class="site-footer section-width"><div><a class="footer-wordmark" href="#top">Eddies<span aria-hidden="true">.</span></a><p>Research on action tokens that carry the dynamics of the robot.</p></div><div class="footer-meta"><a href="#top">Back to top <span aria-hidden="true">↑</span></a><p>Page design shared with <a href="https://ozzey.github.io/papers/m4po/">M4PO</a>.</p></div></footer>
+  </body>
+</html>
